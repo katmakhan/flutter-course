@@ -1,7 +1,7 @@
 # Flutter Syllabus
 Create your flutter projects by using the sample resources, and get your web/apk/ios builds right away
 
-###Getting Started
+### Getting Started
 ```console
 flutter create <project_name>
 ```
