@@ -11,7 +11,7 @@ class DownloadImage {
     // final appstorage = await getDownloadsDirectory();
     final appstorage = Directory('/storage/emulated/0/Download');
     // String filename = "kcymidcard";
-    final file = File('${appstorage.path}/${filename}.png');
+    final file = File('${appstorage.path}/$filename.png');
     file.writeAsBytes(pngBytes);
     print("Succesfully downloaded..");
 

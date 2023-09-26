@@ -1,12 +1,14 @@
-class DmDocument {
+// ignore_for_file: camel_case_types
+
+class Dm_Document {
   String? iurl;
   String? name;
   String? pdfurl;
   bool? selected;
 
-  DmDocument({this.iurl, this.name, this.pdfurl, this.selected});
+  Dm_Document({this.iurl, this.name, this.pdfurl, this.selected});
 
-  DmDocument.fromJson(Map<dynamic, dynamic> json) {
+  Dm_Document.fromJson(Map<dynamic, dynamic> json) {
     iurl = json['iurl'];
     name = json['name'];
     pdfurl = json['pdfurl'];

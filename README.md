@@ -209,3 +209,54 @@ If you find yourself having `gsm.google.service` errors, its probably because yo
 2. Credentials > Android key (Edit this auto created by firebase)
 3. Add the new Key  (SHA-1 of the debug) and save
 4. Wait for 5 seconds
+
+### Datamodels
+- Goto json to dart converter
+```console
+https://javiercbk.github.io/json_to_dart/
+```
+- Make the json for the datamodel
+```json
+{
+    "name":"something",
+    "email":"something@gmail.com",
+    "date":"15/06/1999",
+    "time": "3:00 AM",
+    "timeinmill":5656565
+}
+```
+- Name the datamodel class as `dm_user`
+- Generate the code
+- Copy paste the code to `dm_user.dart` under the `DataModels` folder.
+- Remember to change the `fromJson` , `dm_user.fromJson(Map<String, dynamic> json)` to `dynamic,dynamic>`
+- Genereated Version
+```dart
+    dm_user.fromJson(Map<String, dynamic> json) {
+    name = json['name'];
+    email = json['email'];
+    date = json['date'];
+    time = json['time'];
+    timeinmill = json['timeinmill'];
+  }
+```
+- Right version
+```dart
+    dm_user.fromJson(Map<dynamic, dynamic> json) {
+    name = json['name'];
+    email = json['email'];
+    date = json['date'];
+    time = json['time'];
+    timeinmill = json['timeinmill'];
+  }
+```
+
+### Lint Yellow Signs
+- To disbale yellow warning signs when using print functions 
+- go to `analysis_options.yaml` and uncomment `avoid_print: false` to not show the warning
+
+```console
+linter:
+  # producing the lint.
+  rules:
+    avoid_print: false  # Uncomment to disable the `avoid_print` rule
+```
