@@ -1,0 +1,6 @@
+# Ignore Google Services JSON files for Android in all Flutter projects
+**/android/app/google-services.json
+
+# Ignore Google Service Info plist files for iOS in all Flutter projects
+**/ios/Runner/GoogleService-Info.plist
+
