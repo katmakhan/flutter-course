@@ -28,7 +28,7 @@ class CustomerSupport extends StatelessWidget {
             SizedBox(
               height: 56,
               width: 56,
-              child: SvgPicture.asset("assets/images/shield.svg"),
+              child: SvgPicture.asset("assets/svg/shield.svg"),
             ),
             const SizedBox(
               width: 12,

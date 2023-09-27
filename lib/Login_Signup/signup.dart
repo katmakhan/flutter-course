@@ -26,7 +26,7 @@ class _SingupState extends State<Singup> {
           Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage("assets/images/loginbg.png"),
+                    image: AssetImage("assets/bg/loginbg.png"),
                     fit: BoxFit.cover)),
           ),
           Column(
@@ -184,7 +184,7 @@ class _SingupState extends State<Singup> {
         children: [
           Container(
               margin: const EdgeInsets.fromLTRB(16, 16, 16, 16),
-              child: SvgPicture.asset("assets/images/backbtn.svg")),
+              child: SvgPicture.asset("assets/svg/backbtn.svg")),
         ],
       ),
     );

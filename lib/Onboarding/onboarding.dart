@@ -25,13 +25,13 @@ class _OnboardingState extends State<Onboarding> {
           children: const [
             IntroPage(
                 heading: "LEARN\nFLUTTER\nFROM SCRATCH",
-                imageloc: "assets/images/walk1.png"),
+                imageloc: "assets/onboarding/walk1.png"),
             IntroPage(
                 heading: "CHOOSE FROM\nCOOL 500+ \nTEMPLATES",
-                imageloc: "assets/images/walk2.png"),
+                imageloc: "assets/onboarding/walk2.png"),
             IntroPage(
                 heading: "DOWNLOAD\nCODE FOR YOUR\nFAVOURITE\nDESIGNS",
-                imageloc: "assets/images/walk3.png"),
+                imageloc: "assets/onboarding/walk3.png"),
           ],
         ),
         //dot indicator

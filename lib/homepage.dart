@@ -74,12 +74,12 @@ class _HomepageState extends State<Homepage> {
                 BottomNavigationBarItem(
                   icon: SvgPicture.asset("assets/images/homeu.svg"),
                   label: "Home",
-                  activeIcon: SvgPicture.asset("assets/images/homes.svg"),
+                  activeIcon: SvgPicture.asset("assets/svg/homes.svg"),
                 ),
                 BottomNavigationBarItem(
                   icon: SvgPicture.asset("assets/images/profileu.svg"),
                   label: "Profile",
-                  activeIcon: SvgPicture.asset("assets/images/profiles.svg"),
+                  activeIcon: SvgPicture.asset("assets/svg/profiles.svg"),
                 )
               ]),
         ),

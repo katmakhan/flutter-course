@@ -33,7 +33,7 @@ class _OTPState extends State<OTP> {
             Container(
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("assets/images/loginbg.png"),
+                      image: AssetImage("assets/bg/loginbg.png"),
                       fit: BoxFit.cover)),
             ),
             Column(
@@ -47,7 +47,7 @@ class _OTPState extends State<OTP> {
                       onTap: () => {Navigator.pop(context)},
                       child: Container(
                           margin: EdgeInsets.fromLTRB(16, 16, 16, 16),
-                          child: SvgPicture.asset("assets/images/backbtn.svg")),
+                          child: SvgPicture.asset("assets/svg/backbtn.svg")),
                     ),
                   ],
                 ),
