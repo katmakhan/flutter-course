@@ -68,4 +68,11 @@ class Constants {
       AppColors.primaryColorLight,
     ],
   );
+
+  // Line Container
+  static Container lineSection() => Container(
+        height: 1,
+        margin: const EdgeInsets.fromLTRB(16, 2, 2, 12),
+        color: const Color(0xfff2f2f2),
+      );
 }

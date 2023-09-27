@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:fluttertemplate/Colors/colors.dart';
 import 'package:fluttertemplate/Dialogs/custom_dialog.dart';
 import 'package:fluttertemplate/Helpers/open_url.dart';
@@ -23,7 +22,7 @@ class _HomepageState extends State<Homepage> {
   String androidurl =
       "https://play.google.com/store/apps/details?id=com.btechtraders.btechtraders";
   String iosurl = "https://apps.apple.com/in/app/btechtraders/id6447514602";
-  List pages = [const FragSaved(), FragProfile()];
+  List pages = [const FragSaved(), const FragProfile()];
   int currentIndex = 0;
   void onTap(int index) {
     setState(() {
