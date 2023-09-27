@@ -39,7 +39,7 @@ class _RegisterState extends State<Register> {
             Container(
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("assets/bg/loginbg.png"),
+                      image: AssetImage("assets/png_bg/loginbg.png"),
                       fit: BoxFit.cover)),
             ),
             Column(

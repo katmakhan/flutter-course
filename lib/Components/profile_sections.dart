@@ -17,7 +17,7 @@ class ProfileSections extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => {onTap},
+      onTap: () => {onTap()},
       child: Container(
         margin: const EdgeInsets.fromLTRB(16, 4, 16, 4),
         child: Row(

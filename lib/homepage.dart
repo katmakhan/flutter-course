@@ -72,14 +72,14 @@ class _HomepageState extends State<Homepage> {
               unselectedItemColor: AppColors.black.withOpacity(0.4),
               items: [
                 BottomNavigationBarItem(
-                  icon: SvgPicture.asset("assets/images/homeu.svg"),
+                  icon: SvgPicture.asset("assets/svg_home/homeu.svg"),
                   label: "Home",
-                  activeIcon: SvgPicture.asset("assets/svg/homes.svg"),
+                  activeIcon: SvgPicture.asset("assets/svg_home/homes.svg"),
                 ),
                 BottomNavigationBarItem(
-                  icon: SvgPicture.asset("assets/images/profileu.svg"),
+                  icon: SvgPicture.asset("assets/svg_home/profileu.svg"),
                   label: "Profile",
-                  activeIcon: SvgPicture.asset("assets/svg/profiles.svg"),
+                  activeIcon: SvgPicture.asset("assets/svg_home/profiles.svg"),
                 )
               ]),
         ),

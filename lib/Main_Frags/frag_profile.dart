@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:fluttertemplate/Auth_Service/auth_service.dart';
 import 'package:fluttertemplate/Components/customersupport.dart';
 import 'package:fluttertemplate/Components/profile_sections.dart';
@@ -43,39 +45,39 @@ class _FragProfileState extends State<FragProfile> {
         ProfileSections(
             sectiontext: "About Us",
             sideicon: Icons.chevron_right,
-            svgimageurl: "assets/icons_button/about.svg",
-            onTap: aboutUsFunction()),
+            svgimageurl: "assets/svg_profile/about.svg",
+            onTap: aboutUsFunction),
         Constants.lineSection(),
         ProfileSections(
             sectiontext: "App Feedback",
             sideicon: Icons.chevron_right,
-            svgimageurl: "assets/icons_button/feedback.svg",
-            onTap: contactUsFunction()),
+            svgimageurl: "assets/svg_profile/feedback.svg",
+            onTap: contactUsFunction),
         Constants.lineSection(),
         ProfileSections(
             sectiontext: "Terms & Conditions",
             sideicon: Icons.chevron_right,
-            svgimageurl: "assets/icons_button/terms.svg",
-            onTap: termsandConditionsFunction()),
+            svgimageurl: "assets/svg_profile/terms.svg",
+            onTap: termsandConditionsFunction),
         Constants.lineSection(),
         ProfileSections(
             sectiontext: "Privacy policy",
             sideicon: Icons.chevron_right,
-            svgimageurl: "assets/icons_button/privacy.svg",
-            onTap: privacyFunction()),
+            svgimageurl: "assets/svg_profile/privacy.svg",
+            onTap: privacyFunction),
         const CustomerSupport(),
         Constants.lineSection(),
         ProfileSections(
             sectiontext: "Logout",
             sideicon: Icons.chevron_right,
-            svgimageurl: "assets/icons_button/logout.svg",
-            onTap: logoutFunction()),
+            svgimageurl: "assets/svg_profile/delete.svg",
+            onTap: logoutFunction),
         Constants.lineSection(),
         ProfileSections(
             sectiontext: "Delete User Data",
             sideicon: Icons.chevron_right,
-            svgimageurl: "assets/icons_button/delete.svg",
-            onTap: deleteUserDataFunction()),
+            svgimageurl: "assets/svg_profile/delete.svg",
+            onTap: deleteUserDataFunction),
         Constants.lineSection(),
       ],
     );

@@ -1,5 +1,7 @@
 import 'package:fluttertemplate/DB_Services/database_read.dart';
 import 'package:fluttertemplate/DataModels/dm_user.dart';
+import 'package:fluttertemplate/Helpers/global_snackbar.dart';
+import 'package:fluttertemplate/Helpers/global_snackbar_get.dart';
 import 'package:get/get.dart';
 
 class UsersController extends GetxController {
@@ -15,6 +17,9 @@ class UsersController extends GetxController {
         print(datalist.length);
         userList.assignAll(datalist.reversed.toList());
       }
+    } catch (e) {
+      GlobalSnackBarGet().showGetError("Error", "Database Error");
+      print("Database error $e");
     } finally {
       isLoading(false);
     }

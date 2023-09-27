@@ -33,7 +33,7 @@ class _OTPState extends State<OTP> {
             Container(
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("assets/bg/loginbg.png"),
+                      image: AssetImage("assets/png_bg/loginbg.png"),
                       fit: BoxFit.cover)),
             ),
             Column(

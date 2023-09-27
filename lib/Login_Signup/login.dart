@@ -14,7 +14,7 @@ class LoginPage extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/onboarding/walk1.png"),
+                  image: AssetImage("assets/png_onboarding/walk1.png"),
                   fit: BoxFit.cover),
             ),
             child: Center(
@@ -50,7 +50,7 @@ class LoginPage extends StatelessWidget {
                       SizedBox(
                         height: 8,
                       ),
-                      Image.asset("assets/icons/google.png", height: 100),
+                      Image.asset("assets/png_logo/google.png", height: 100),
                       SizedBox(
                         height: 8,
                       ),

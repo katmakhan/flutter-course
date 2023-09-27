@@ -26,7 +26,7 @@ class _SingupState extends State<Singup> {
           Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage("assets/bg/loginbg.png"),
+                    image: AssetImage("assets/png_bg/loginbg.png"),
                     fit: BoxFit.cover)),
           ),
           Column(
