@@ -14,4 +14,9 @@ class AppColors {
   static const Color whiteShade = Color(0xffe0e0e0);
   static const Color white = Color(0xffffffff);
   static const Color black = Color(0xff000000);
+
+  static const Color titleTextColor = Color(0xFF504e9c);
+  static const Color btnColor = Color(0xFF4786ec);
+  static const Color btnBorderColor = Color.fromARGB(255, 183, 181, 252);
+  static const Color subTitleTextColor = Color(0xFF9593a8);
 }

@@ -87,6 +87,7 @@ dependencies:
 
 
   smooth_page_indicator: ^1.0.0+2
+  animate_do : any
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -120,6 +121,7 @@ flutter:
     - assets/png_bg/
     - assets/png_logo/
     - assets/png_onboarding/
+    - assets/png_onboarding2/
     - assets/svg_home/
     - assets/svg_other/
     - assets/svg_profile/
