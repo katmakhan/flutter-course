@@ -17,6 +17,13 @@ class _SignInThreeState extends State<SignInThree> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: const IconThemeData(
+          color: Colors.black, //change your color here
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       backgroundColor: const Color(0xFF21899C),
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -211,7 +218,7 @@ class _SignInThreeState extends State<SignInThree> {
 
   Widget logo(double height_, double width_) {
     return SvgPicture.asset(
-      'assets/logo.svg',
+      'assets/svg_logo/google_logo.svg',
       height: height_,
       width: width_,
     );

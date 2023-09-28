@@ -3,6 +3,7 @@ import 'package:fluttertemplate/Colors/colors.dart';
 import 'package:fluttertemplate/Helpers/firebase_remoteconfig.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fluttertemplate/Login_Pages/login_page_list.dart';
 import 'package:fluttertemplate/Main_Frags/frag_profile.dart';
 import 'package:fluttertemplate/Main_Frags/frag_saved.dart';
 
@@ -16,7 +17,7 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   //Frames
-  List pages = [const FragSaved(), const FragProfile()];
+  List pages = [const FragSaved(), const login_listView(), const FragProfile()];
   int currentIndex = 0;
 
   void onTap(int index) {
@@ -69,6 +70,11 @@ class _HomepageState extends State<Homepage> {
                 BottomNavigationBarItem(
                   icon: SvgPicture.asset("assets/svg_home/homeu.svg"),
                   label: "Home",
+                  activeIcon: SvgPicture.asset("assets/svg_home/homes.svg"),
+                ),
+                BottomNavigationBarItem(
+                  icon: SvgPicture.asset("assets/svg_home/homeu.svg"),
+                  label: "Login Pages",
                   activeIcon: SvgPicture.asset("assets/svg_home/homes.svg"),
                 ),
                 BottomNavigationBarItem(

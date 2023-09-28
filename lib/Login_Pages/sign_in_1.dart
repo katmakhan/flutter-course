@@ -10,9 +10,16 @@ class SignInOne extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: const IconThemeData(
+          color: Colors.black, //change your color here
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child: Center(
+        child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
@@ -52,7 +59,7 @@ class SignInOne extends StatelessWidget {
                 //sign in with google & apple
                 // signInGoogleButton(size),
                 SignInOneSocialButton(
-                  iconPath: 'assets/apple_logo.svg',
+                  iconPath: 'assets/svg_logo/apple_logo.svg',
                   text: 'Sign in with Apple',
                   size: size,
                 ),
@@ -60,7 +67,7 @@ class SignInOne extends StatelessWidget {
                   height: size.height * 0.02,
                 ),
                 SignInOneSocialButton(
-                  iconPath: 'assets/google_logo.svg',
+                  iconPath: 'assets/svg_logo/google_logo.svg',
                   text: 'Sign in with Google',
                   size: size,
                 ),
@@ -69,7 +76,7 @@ class SignInOne extends StatelessWidget {
                   height: size.height * 0.03,
                 ),
 
-                //sign up text here
+                // sign up text here
                 Center(
                   child: footerText(),
                 )
@@ -83,7 +90,7 @@ class SignInOne extends StatelessWidget {
 
   Widget logo(double height_, double width_) {
     return SvgPicture.asset(
-      'assets/logo.svg',
+      'assets/svg_logo/google_logo.svg',
       height: height_,
       width: width_,
     );

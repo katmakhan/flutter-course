@@ -17,6 +17,13 @@ class _SignInSevenState extends State<SignInSeven> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: const IconThemeData(
+          color: Colors.black, //change your color here
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xFF21899C),
       body: SafeArea(
@@ -191,7 +198,7 @@ class _SignInSevenState extends State<SignInSeven> {
 
   Widget logo(double height_, double width_) {
     return SvgPicture.asset(
-      'assets/logo.svg',
+      'assets/svg_logo/google_logo.svg',
       height: height_,
       width: width_,
     );
