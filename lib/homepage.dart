@@ -1,9 +1,6 @@
 import 'dart:io';
 import 'package:fluttertemplate/Colors/colors.dart';
-import 'package:fluttertemplate/Dialogs/custom_dialog.dart';
-import 'package:fluttertemplate/Helpers/open_url.dart';
-import 'package:fluttertemplate/Helpers/update_helper.dart';
-import 'package:firebase_remote_config/firebase_remote_config.dart';
+import 'package:fluttertemplate/Helpers/firebase_remoteconfig.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertemplate/Main_Frags/frag_profile.dart';
@@ -18,12 +15,10 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  bool compulsory = false;
-  String androidurl =
-      "https://play.google.com/store/apps/details?id=com.btechtraders.btechtraders";
-  String iosurl = "https://apps.apple.com/in/app/btechtraders/id6447514602";
+  //Frames
   List pages = [const FragSaved(), const FragProfile()];
   int currentIndex = 0;
+
   void onTap(int index) {
     setState(() {
       currentIndex = index;
@@ -36,7 +31,7 @@ class _HomepageState extends State<Homepage> {
     if (widget.fragpos != null) {
       currentIndex = widget.fragpos!;
     }
-    // fetchRemoteConfig();
+    fetchRemoteConfig(context);
     super.initState();
   }
 
@@ -85,81 +80,5 @@ class _HomepageState extends State<Homepage> {
         ),
       ),
     );
-  }
-
-  Future<void> fetchRemoteConfig() async {
-    final FirebaseRemoteConfig remoteConfig = FirebaseRemoteConfig.instance;
-
-    try {
-      // Using zero duration to force fetching from remote server.
-      await remoteConfig.setConfigSettings(
-        RemoteConfigSettings(
-          fetchTimeout: const Duration(seconds: 10),
-          minimumFetchInterval: const Duration(seconds: 120),
-        ),
-      );
-
-      // Activate the oldervalues immediately
-      await remoteConfig.activate();
-
-      //Then fetch the latest values
-      await remoteConfig.fetch();
-
-      iosurl = remoteConfig.getString('ioslink');
-      androidurl = remoteConfig.getString('androidlink');
-      String message = remoteConfig.getString('Message');
-
-      int latestVersion = remoteConfig.getInt('latest_version');
-      int minVersion = remoteConfig.getInt('min_version');
-
-      int bnumber = await getBuildNumber();
-      print("Current Build Number: $bnumber");
-      print("Latest Build Number: $latestVersion");
-      print("Min Build Number: $minVersion");
-
-      //Compulsory Logic
-      if (bnumber < minVersion) {
-        compulsory = true;
-      } else {
-        compulsory = false;
-      }
-
-      //To show dialog
-      if (bnumber < latestVersion) {
-        // ignore: use_build_context_synchronously
-        DialogUtils().showCustomDialogUpdate(
-            context,
-            "Update Available",
-            message,
-            "Update",
-            "Cancel",
-            updateFunction,
-            cancelFunction,
-            compulsory);
-      }
-
-      // DialogUtils().showCustomDialogUpdate(context, title, descrip, okBtnText, cancelBtnText, okBtnFunction, cancelBtnFunction)
-    } catch (e) {
-      // Handle error
-      print('Error fetching remote config: $e');
-    }
-  }
-
-  updateFunction() {
-    // compulsory=
-    if (Platform.isIOS) {
-      print('is a IOS');
-      OpenHelper.openUrl(iosurl);
-    } else if (Platform.isAndroid) {
-      print('is a Andriod');
-      OpenHelper.openUrl(androidurl);
-    } else {}
-  }
-
-  cancelFunction() {
-    if (compulsory) {
-    } else {
-      Navigator.pop(context);
-    }
   }
 }

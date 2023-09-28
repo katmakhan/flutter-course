@@ -2,7 +2,7 @@ import 'package:fluttertemplate/Helpers/global_snackbar_get.dart';
 import 'package:fluttertemplate/Login_Signup/otp.dart';
 import 'package:fluttertemplate/Login_Signup/signup.dart';
 import 'package:fluttertemplate/Onboarding/onboarding.dart';
-import 'package:fluttertemplate/OnboardingNew/onboarding_new.dart';
+// import 'package:fluttertemplate/OnboardingNew/onboarding_new.dart';
 import 'package:fluttertemplate/homepage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

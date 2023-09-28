@@ -1,6 +1,5 @@
 import 'package:fluttertemplate/DB_Services/database_read.dart';
 import 'package:fluttertemplate/DataModels/dm_user.dart';
-import 'package:fluttertemplate/Helpers/global_snackbar.dart';
 import 'package:fluttertemplate/Helpers/global_snackbar_get.dart';
 import 'package:get/get.dart';
 

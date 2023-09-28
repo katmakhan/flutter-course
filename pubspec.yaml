@@ -69,10 +69,13 @@ dependencies:
   firebase_app_check: ^0.1.2+1
 
   google_sign_in: ^6.1.0
+  google_fonts: ^2.3.1
   permission_handler: ^10.2.0
   photo_view: ^0.14.0
 
   algolia: ^1.1.2
+  flutter_slidable: ^3.0.0
+  iconsax: ^0.0.8
 
   another_carousel_pro:
     git:
@@ -123,6 +126,7 @@ flutter:
     - assets/png_onboarding/
     - assets/png_onboarding2/
     - assets/svg_home/
+    - assets/svg_logo/
     - assets/svg_other/
     - assets/svg_profile/
 
