@@ -260,3 +260,13 @@ linter:
   rules:
     avoid_print: false  # Uncomment to disable the `avoid_print` rule
 ```
+
+### Upgrading Compile SDK to 33
+- Upgrade the `ext.kotlin_version` inside `build.gradle` to
+```console
+ext.kotlin_version = '1.7.10'
+```
+- Upgrade the `tools.build:gradle` inside `build.gradle` to
+```console
+classpath 'com.android.tools.build:gradle:7.3.0'
+```
