@@ -1,8 +1,10 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 
-class SingleReferal extends StatelessWidget {
+class si_ProfileImage extends StatelessWidget {
   final String linkurl;
-  const SingleReferal(this.linkurl, {Key? key}) : super(key: key);
+  const si_ProfileImage(this.linkurl, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

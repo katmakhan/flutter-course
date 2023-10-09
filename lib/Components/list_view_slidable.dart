@@ -5,9 +5,13 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 
 class Cust_ListView_Slidable extends StatelessWidget {
   final Function() onTap;
-  final String custtext;
+  final String mainheading;
+  final String subheading;
   const Cust_ListView_Slidable(
-      {super.key, required this.custtext, required this.onTap});
+      {super.key,
+      required this.mainheading,
+      required this.subheading,
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +34,9 @@ class Cust_ListView_Slidable extends StatelessWidget {
       ]),
       child: Container(
         color: Colors.grey[100],
-        child: const ListTile(
-          title: Text("Jibin"),
-          subtitle: Text("btechtraders18@gmail.com"),
+        child: ListTile(
+          title: Text(mainheading.toString()),
+          subtitle: Text(subheading.toString()),
           leading: Icon(
             Icons.person,
             size: 40,

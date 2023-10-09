@@ -21,7 +21,8 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
-    avoid_print: false  # Uncomment to disable the `avoid_print` rule
+    non_constant_identifier_names: false # to create classnames with underscore view_Something
+    avoid_print: false  # to not show error with print()
     # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
 
 # Additional information about this file can be found at

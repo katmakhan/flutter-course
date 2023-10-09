@@ -7,13 +7,13 @@ class UsersController extends GetxController {
   List<Dm_User> userList = List<Dm_User>.empty(growable: true).obs;
   var isLoading = true.obs;
 
-  void fetchallReferals() async {
+  void fetch_allusers() async {
     try {
       isLoading(true);
       var datalist = await DatabaseReadService().getUsersList();
       if (datalist != null) {
         isLoading(false);
-        print(datalist.length);
+        print("Total users is: ${datalist.length}");
         userList.assignAll(datalist.reversed.toList());
       }
     } catch (e) {

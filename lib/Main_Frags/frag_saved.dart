@@ -1,8 +1,8 @@
-import 'package:fluttertemplate/Controllers/users_controller.dart';
+import 'package:fluttertemplate/Components/list_view_slidable.dart';
+import 'package:fluttertemplate/RecyclerControllers/users_controller.dart';
 import 'package:fluttertemplate/Dialogs/no_resulfound.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertemplate/Helpers/constants.dart';
-import 'package:fluttertemplate/Single_Items/si_referral.dart';
 import 'package:get/get.dart';
 
 class FragSaved extends StatefulWidget {
@@ -21,7 +21,7 @@ class _FragSavedState extends State<FragSaved> {
     // String uid = FirebaseAuth.instance.currentUser!.uid.toString();
     // String uid = "";
 
-    usersController.fetchallReferals();
+    usersController.fetch_allusers();
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -72,8 +72,13 @@ class _FragSavedState extends State<FragSaved> {
                     //           referalsController.referalList[index]),
                     //     ));
                   },
-                  child: SingleReferal(
-                      usersController.userList[index].name.toString()),
+                  child: Cust_ListView_Slidable(
+                    mainheading:
+                        usersController.userList[index].name.toString(),
+                    subheading:
+                        usersController.userList[index].imgurl.toString(),
+                    onTap: () => {},
+                  ),
                 );
               });
         }

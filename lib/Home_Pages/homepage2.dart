@@ -21,7 +21,7 @@ class _Homepage_NavButtonState extends State<Homepage_NavButton> {
   void onTap(int index) {
     setState(() {
       currentIndex = index;
-      print("Current on $index");
+      // print("Current on $index");
     });
   }
 

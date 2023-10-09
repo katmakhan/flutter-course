@@ -6,6 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fluttertemplate/Login_Pages/login_page_list.dart';
 import 'package:fluttertemplate/Main_Frags/frag_profile.dart';
 import 'package:fluttertemplate/Main_Frags/frag_saved.dart';
+import 'package:fluttertemplate/RecyclerView/combined_recycler.dart';
 
 class Homepage extends StatefulWidget {
   final int? fragpos;
@@ -17,13 +18,18 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   //Frames
-  List pages = [const FragSaved(), const login_listView(), const FragProfile()];
+  List pages = [
+    const FragSaved(),
+    const login_listView(),
+    const CombinedRecycler(),
+    const FragProfile()
+  ];
   int currentIndex = 0;
 
   void onTap(int index) {
     setState(() {
       currentIndex = index;
-      print("Current on $index");
+      // print("Current on $index");
     });
   }
 
@@ -75,6 +81,11 @@ class _HomepageState extends State<Homepage> {
                 BottomNavigationBarItem(
                   icon: SvgPicture.asset("assets/svg_home/homeu.svg"),
                   label: "Login Pages",
+                  activeIcon: SvgPicture.asset("assets/svg_home/homes.svg"),
+                ),
+                BottomNavigationBarItem(
+                  icon: SvgPicture.asset("assets/svg_home/homeu.svg"),
+                  label: "Recylerview",
                   activeIcon: SvgPicture.asset("assets/svg_home/homes.svg"),
                 ),
                 BottomNavigationBarItem(
