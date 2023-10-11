@@ -1,3 +1,4 @@
+import 'package:fluttertemplate/DataModels/dm_category.dart';
 import 'package:fluttertemplate/DataModels/dm_gallery.dart';
 import 'package:fluttertemplate/DataModels/dm_user.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -73,5 +74,71 @@ class DatabaseReadService {
       print('No specific gallery categoies found in template app');
     }
     return gallerycatList;
+  }
+
+  // Get categoires for dropdown
+  Future<List<Dm_Category>?> getDropdown_CatList() async {
+    final ref = db.ref();
+    DataSnapshot snapshot = await ref.child('categories').get();
+
+    List<Dm_Category> totalcatList = [];
+    if (snapshot.exists) {
+      print('Categories found in the template app');
+
+      var datalist = snapshot.value as Map<dynamic, dynamic>;
+
+      datalist.forEach((key, value) {
+        Dm_Category category = Dm_Category();
+        category = Dm_Category.fromJson(value);
+        totalcatList.add(category);
+      });
+    } else {
+      print('No categories found in template app');
+    }
+    return totalcatList;
+  }
+
+  // Get categoires for dropdown
+  Future<List<Dm_Category>?> getEmptyList() async {
+    final ref = db.ref();
+    DataSnapshot snapshot = await ref.child('nothing').get();
+
+    List<Dm_Category> totalcatList = [];
+    if (snapshot.exists) {
+      print('Categories found in the template app');
+
+      var datalist = snapshot.value as Map<dynamic, dynamic>;
+
+      datalist.forEach((key, value) {
+        Dm_Category category = Dm_Category();
+        category = Dm_Category.fromJson(value);
+        totalcatList.add(category);
+      });
+    } else {
+      print('No categories found in template app');
+    }
+    return totalcatList;
+  }
+
+  // Get sub categoires for dropdown
+  Future<List<Dm_Category>?> getDropdown_SubCatList(String cat) async {
+    final ref = db.ref();
+    DataSnapshot snapshot = await ref.child('subcategories').child(cat).get();
+
+    List<Dm_Category> totalcatList = [];
+    if (snapshot.exists) {
+      print('Sub categories found in the template app');
+
+      var datalist = snapshot.value as Map<dynamic, dynamic>;
+
+      datalist.forEach((key, value) {
+        Dm_Category category = Dm_Category();
+        category = Dm_Category.fromJson(value);
+        totalcatList.add(category);
+      });
+    } else {
+      print('No sub categories found in template app');
+    }
+    return totalcatList;
   }
 }

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:fluttertemplate/Components/list_view.dart';
+import 'package:fluttertemplate/Dropdown/single_dropdown.dart';
 import 'package:fluttertemplate/Login_Pages/sign_in_1.dart';
 import 'package:fluttertemplate/Login_Pages/sign_in_2.dart';
 
@@ -25,7 +26,11 @@ class _login_listViewState extends State<login_listView> {
           Cust_ListView(
               custtext: "LoginPage2",
               custsubtext: "Basic Description",
-              onTap: onTap2)
+              onTap: onTap2),
+          Cust_ListView(
+              custtext: "Dropdown",
+              custsubtext: "Drop down functionality",
+              onTap: onTap3)
         ]),
       ),
     );
@@ -42,6 +47,13 @@ class _login_listViewState extends State<login_listView> {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const SignInTwo()),
+    );
+  }
+
+  onTap3() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const SingleDropdown()),
     );
   }
 }
