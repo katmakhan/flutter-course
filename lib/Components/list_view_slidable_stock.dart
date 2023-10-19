@@ -5,12 +5,14 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 
 class Cust_ListView_Slidable_Stock extends StatelessWidget {
   final Function() onTap;
-  final String mainheading;
-  final String subheading;
+  final String stocknameval;
+  final double? ltpval;
+  final double? prevval;
   const Cust_ListView_Slidable_Stock(
       {super.key,
-      required this.mainheading,
-      required this.subheading,
+      required this.stocknameval,
+      required this.ltpval,
+      required this.prevval,
       required this.onTap});
 
   @override
@@ -33,10 +35,15 @@ class Cust_ListView_Slidable_Stock extends StatelessWidget {
         )
       ]),
       child: Container(
-        color: Colors.grey[100],
+        // color: Colors.grey[100],
+        color: (prevval ?? 0.0) > (ltpval ?? 0.0)
+            ? Colors.red
+            : (prevval ?? 0.0) < (ltpval ?? 0.0)
+                ? Colors.green
+                : null,
         child: ListTile(
-          title: Text(mainheading.toString()),
-          subtitle: Text(subheading.toString()),
+          title: Text(stocknameval.toString()),
+          subtitle: Text("$ltpval $prevval"),
           leading: const Icon(
             Icons.person,
             size: 40,
