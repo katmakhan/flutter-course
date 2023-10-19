@@ -141,4 +141,24 @@ class DatabaseReadService {
     }
     return totalcatList;
   }
+
+  //Transactional Queries
+  Future<void> transaction() async {
+    DatabaseReference ref = FirebaseDatabase.instance.ref("users/123");
+
+    await ref.update({
+      // Increment the age on the server
+      "age": ServerValue.increment(1),
+      // Add a server generated timestamp
+      "createdAt": ServerValue.timestamp,
+    });
+  }
+
+  // Realtime Listeners
+  Stream<List<Dm_User>> getUsers() {
+    return FirebaseDatabase.instance.ref("RealTime").onValue.map((event) =>
+        event.snapshot.children
+            .map((e) => Dm_User.fromJson(e.value as Map<dynamic, dynamic>))
+            .toList());
+  }
 }

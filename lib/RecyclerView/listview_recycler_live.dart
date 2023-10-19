@@ -1,11 +1,11 @@
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertemplate/Components/list_view_slidable.dart';
+import 'package:fluttertemplate/DB_Services/database_read.dart';
 import 'package:fluttertemplate/DataModels/dm_user.dart';
 
 StreamBuilder<List<Dm_User>> subscribeToRealtimeData() {
   return StreamBuilder<List<Dm_User>>(
-    stream: getUsers(),
+    stream: DatabaseReadService().getUsers(),
     builder: (context, snapshot) {
       switch (snapshot.connectionState) {
         case ConnectionState.waiting:
@@ -45,9 +45,3 @@ StreamBuilder<List<Dm_User>> subscribeToRealtimeData() {
 }
 
 void tapFunction() {}
-Stream<List<Dm_User>> getUsers() {
-  return FirebaseDatabase.instance.ref("RealTime").onValue.map((event) => event
-      .snapshot.children
-      .map((e) => Dm_User.fromJson(e.value as Map<dynamic, dynamic>))
-      .toList());
-}
