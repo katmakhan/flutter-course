@@ -154,11 +154,25 @@ class DatabaseReadService {
     });
   }
 
-  // Realtime Listeners
-  Stream<List<Dm_User>> getUsers() {
-    return FirebaseDatabase.instance.ref("RealTime").onValue.map((event) =>
-        event.snapshot.children
+  // Realtime Listeners for Dictionary
+  Stream<List<Dm_User>> getUsers(int limit) {
+    return FirebaseDatabase.instance
+        .ref("RealTime")
+        .limitToFirst(limit) // To preserve the server load
+        .onValue
+        .map((event) => event.snapshot.children
             .map((e) => Dm_User.fromJson(e.value as Map<dynamic, dynamic>))
+            .toList());
+  }
+
+  // Realtime Listeners for List
+  Stream<List<Dm_User>> getStockdata(int limit) {
+    return FirebaseDatabase.instance
+        .ref("stockdata")
+        .limitToFirst(limit) // To preserve the server load
+        .onValue
+        .map((event) => event.snapshot.children
+            .map((e) => Dm_User.fromJson({"name": e.key.toString()}))
             .toList());
   }
 }

@@ -1,6 +1,3 @@
-import 'package:fluttertemplate/Components/list_view_slidable.dart';
-import 'package:fluttertemplate/RecyclerControllers/users_controller.dart';
-import 'package:fluttertemplate/Dialogs/no_resulfound.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertemplate/Helpers/constants.dart';
 import 'package:fluttertemplate/RecyclerView/listview_recycler_live.dart';
@@ -13,7 +10,8 @@ class FragRealtime extends StatefulWidget {
 }
 
 class _FragRealtimeState extends State<FragRealtime> {
-  // int _selectedIndex = 0;
+  int _limit = 10;
+  final ScrollController _scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +33,32 @@ class _FragRealtimeState extends State<FragRealtime> {
               ),
             ),
             // NoSavedColleges()
-            Flexible(child: subscribeToRealtimeData())
+            Flexible(child: subscribeToRealtimeData(_scrollController, _limit))
           ],
         ),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    // Add a listener to the scroll controller to detect scroll position
+    _scrollController.addListener(() {
+      // Check if the scroll position has reached the end of the list
+      if (_scrollController.position.pixels ==
+          _scrollController.position.maxScrollExtent) {
+        // Call your loadMore function when the end of the list is reached
+        loadMore();
+      }
+    });
+    super.initState();
+  }
+
+  void loadMore() {
+    if (_limit <= 46) {
+      setState(() {
+        _limit = _limit + 10;
+      });
+    }
   }
 }

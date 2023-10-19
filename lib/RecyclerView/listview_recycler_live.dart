@@ -3,9 +3,9 @@ import 'package:fluttertemplate/Components/list_view_slidable.dart';
 import 'package:fluttertemplate/DB_Services/database_read.dart';
 import 'package:fluttertemplate/DataModels/dm_user.dart';
 
-StreamBuilder<List<Dm_User>> subscribeToRealtimeData() {
+StreamBuilder<List<Dm_User>> subscribeToRealtimeData(scrollController, limit) {
   return StreamBuilder<List<Dm_User>>(
-    stream: DatabaseReadService().getUsers(),
+    stream: DatabaseReadService().getStockdata(limit),
     builder: (context, snapshot) {
       switch (snapshot.connectionState) {
         case ConnectionState.waiting:
@@ -22,8 +22,9 @@ StreamBuilder<List<Dm_User>> subscribeToRealtimeData() {
             } else {
               print("Length is ${userslist.length}");
               return ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
+                  // physics: const NeverScrollableScrollPhysics(),
                   padding: EdgeInsets.zero,
+                  controller: scrollController,
                   shrinkWrap: true,
                   itemCount: userslist.length,
                   itemBuilder: (context, index) {
