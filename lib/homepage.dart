@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertemplate/Login_Pages/login_page_list.dart';
 import 'package:fluttertemplate/Main_Frags/frag_profile.dart';
+import 'package:fluttertemplate/Main_Frags/frag_realtime.dart';
 import 'package:fluttertemplate/Main_Frags/frag_saved.dart';
 import 'package:fluttertemplate/RecyclerView/combined_recycler.dart';
 
@@ -21,7 +22,8 @@ class _HomepageState extends State<Homepage> {
   List pages = [
     const FragSaved(),
     const login_listView(),
-    const CombinedRecycler(),
+    // const CombinedRecycler(),
+    const FragRealtime(),
     const FragProfile()
   ];
   int currentIndex = 0;
