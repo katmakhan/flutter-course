@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertemplate/Components/list_view_slidable.dart';
+import 'package:fluttertemplate/Components/list_view_slidable_stock.dart';
 import 'package:fluttertemplate/DB_Services/database_read.dart';
-import 'package:fluttertemplate/DataModels/dm_user.dart';
+import 'package:fluttertemplate/DataModels/dm_stock.dart';
 
-StreamBuilder<List<Dm_User>> subscribeToRealtimeData(scrollController, limit) {
-  return StreamBuilder<List<Dm_User>>(
+StreamBuilder<List<dm_stock>> subscribeToRealtimeData(scrollController, limit) {
+  return StreamBuilder<List<dm_stock>>(
     stream: DatabaseReadService().getStockdata(limit),
     builder: (context, snapshot) {
       switch (snapshot.connectionState) {
@@ -20,9 +20,9 @@ StreamBuilder<List<Dm_User>> subscribeToRealtimeData(scrollController, limit) {
             if (userslist!.isEmpty) {
               return const Center(child: Text('No Users Found'));
             } else {
-              print("Length is ${userslist.length}");
+              print("Length fetched ${userslist.length}");
+
               return ListView.builder(
-                  // physics: const NeverScrollableScrollPhysics(),
                   padding: EdgeInsets.zero,
                   controller: scrollController,
                   shrinkWrap: true,
@@ -32,9 +32,9 @@ StreamBuilder<List<Dm_User>> subscribeToRealtimeData(scrollController, limit) {
                       onTap: () {
                         //Call the dialog
                       },
-                      child: Cust_ListView_Slidable(
-                          mainheading: userslist[index].name.toString(),
-                          subheading: "something else",
+                      child: Cust_ListView_Slidable_Stock(
+                          mainheading: userslist[index].stckname.toString(),
+                          subheading: userslist[index].ltp.toString(),
                           onTap: tapFunction),
                     );
                   });

@@ -55,6 +55,7 @@ class _FragRealtimeState extends State<FragRealtime> {
   }
 
   void loadMore() {
+    // Check if its the max loadmore, then limit it, to not refresh when all is loaded
     if (_limit <= 46) {
       setState(() {
         _limit = _limit + 10;

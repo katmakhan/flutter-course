@@ -1,5 +1,6 @@
 import 'package:fluttertemplate/DataModels/dm_category.dart';
 import 'package:fluttertemplate/DataModels/dm_gallery.dart';
+import 'package:fluttertemplate/DataModels/dm_stock.dart';
 import 'package:fluttertemplate/DataModels/dm_user.dart';
 import 'package:firebase_database/firebase_database.dart';
 
@@ -166,13 +167,14 @@ class DatabaseReadService {
   }
 
   // Realtime Listeners for List
-  Stream<List<Dm_User>> getStockdata(int limit) {
+  Stream<List<dm_stock>> getStockdata(int limit) {
     return FirebaseDatabase.instance
         .ref("stockdata")
         .limitToFirst(limit) // To preserve the server load
         .onValue
         .map((event) => event.snapshot.children
-            .map((e) => Dm_User.fromJson({"name": e.key.toString()}))
+            .map((e) => dm_stock
+                .fromJson({"stckname": e.key.toString(), "ltp": e.value}))
             .toList());
   }
 }
