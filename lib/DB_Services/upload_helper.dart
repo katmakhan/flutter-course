@@ -16,6 +16,11 @@ class UploadHelperIMGPDF {
     bool isdone = false;
 
     // check if its firebase link
+    if (pdfController.text.toString().contains("firebase")) {
+      // Replace, Delete, Overwrite logic
+    }
+
+    //Check if its PDF extesion
     if (pdfController.text.endsWith(".pdf")) {
       print("PDF file to upload is: ${pdfController.text}");
       int bytes = await File(pdfController.text).length();
@@ -31,29 +36,27 @@ class UploadHelperIMGPDF {
     }
 
     // ignore: use_build_context_synchronously
-    CustomAlert().showLoaderDialog(context, "Uploading the doc");
+    CustomAlert().showLoaderDialog(context, "Uploading the pdf");
 
-    if (pdfController.text.contains(".pdf")) {
-      var result = await UploadHelper().uploadFile(
-          // File(pdfController.text), "downloads/" + cat + "/", filename);
-          File(pdfController.text),
-          mainpath + subpath,
-          filename);
+    var result = await UploadHelperFirebase().uploadFile(
+        // File(pdfController.text), "downloads/" + cat + "/", filename);
+        File(pdfController.text),
+        mainpath + subpath,
+        filename);
 
-      if (result.toString() != "null") {
-        GlobalSnackBarGet().showGetSucess("Sucess", "PDF Uploaded");
-        pdfController.text = result.toString();
-        isdone = true;
-        // Loader remove
-        // ignore: use_build_context_synchronously
-        Navigator.pop(context);
-      } else {
-        GlobalSnackBarGet().showGetError("Error", "PDF couldnt be uploaded");
-        // Loader remove
-        // ignore: use_build_context_synchronously
-        Navigator.pop(context);
-        return false;
-      }
+    if (result.toString() != "null") {
+      GlobalSnackBarGet().showGetSucess("Sucess", "PDF Uploaded");
+      pdfController.text = result.toString();
+      isdone = true;
+      // Loader remove
+      // ignore: use_build_context_synchronously
+      Navigator.pop(context);
+    } else {
+      GlobalSnackBarGet().showGetError("Error", "PDF couldnt be uploaded");
+      // Loader remove
+      // ignore: use_build_context_synchronously
+      Navigator.pop(context);
+      return false;
     }
 
     return isdone;
@@ -68,28 +71,18 @@ class UploadHelperIMGPDF {
     bool isdone = false;
 
     // check if its firebase link
+    if (imgController.text.toString().contains("firebase")) {
+      // Replace, Delete, Overwrite logic
+    }
     print("Checking the path in ${imgController.text}");
-    String imgextension = imgController.text.toString().split(".").last;
 
-    // String imgextension = imgController.text
-    //     .toString()
-    //     .substring(imgController.text.toString().length - 3);
+    // Check Extension
+    String imgextension = imgController.text.toString().split(".").last;
     print("Extension is $imgextension");
-    if (imgextension == "jpg" ||
-        imgextension == "jpeg" ||
-        imgextension == "png") {
-      print("Image file to upload is: ${imgController.text}");
-      int bytes = await File(imgController.text).length();
-      String filesize =
-          await FilesizeHelper().getFileSize(imgController.text, 2);
-      if (bytes >= Constants.MAX_IMAGE_SIZE) {
-        GlobalSnackBarGet().showGetError("Error",
-            "${Constants.MAX_IMAGE_SIZE_MESSAGE}.\nCompressed image size is $filesize");
-        return false;
-      }
-    } else {
-      GlobalSnackBarGet()
-          .showGetError("Error", "Invalid File type for image $filename");
+
+    // Check Image Extension Function
+    bool val = await checkExtensionImage(imgextension, imgController, filename);
+    if (!val) {
       return false;
     }
 
@@ -97,7 +90,7 @@ class UploadHelperIMGPDF {
     CustomAlert().showLoaderDialog(context, "Uploading the image");
 
     // Main function to upload
-    var result = await UploadHelper()
+    var result = await UploadHelperFirebase()
         .uploadFile(File(imgController.text), "$mainpath/$subpath/", filename);
 
     if (result.toString() != "null") {
@@ -118,6 +111,27 @@ class UploadHelperIMGPDF {
       return false;
     }
     return isdone;
+  }
+
+  checkExtensionImage(String imgextension, TextEditingController imgController,
+      String filename) async {
+    if (imgextension == "jpg" ||
+        imgextension == "jpeg" ||
+        imgextension == "png") {
+      print("Image file to upload is: ${imgController.text}");
+      int bytes = await File(imgController.text).length();
+      String filesize =
+          await FilesizeHelper().getFileSize(imgController.text, 2);
+      if (bytes >= Constants.MAX_IMAGE_SIZE) {
+        GlobalSnackBarGet().showGetError("Error",
+            "${Constants.MAX_IMAGE_SIZE_MESSAGE}.\nCompressed image size is $filesize");
+        return false;
+      }
+    } else {
+      GlobalSnackBarGet()
+          .showGetError("Error", "Invalid File type for image $filename");
+      return false;
+    }
   }
 
   // Future<bool> UploadpdfwithBytes(BuildContext context, String mainpath,

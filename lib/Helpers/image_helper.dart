@@ -65,7 +65,7 @@ class ImageHelper {
     if (imagefilepath.contains(".jpg") ||
         imagefilepath.contains(".jpeg") ||
         imagefilepath.contains(".png")) {
-      var result = await UploadHelper()
+      var result = await UploadHelperFirebase()
           .uploadFile(File(imagefilepath), "gallery/$cat/", filename);
 
       if (result.toString() != "null") {

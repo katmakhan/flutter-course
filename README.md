@@ -122,6 +122,12 @@ Make sure you `enable the firebase services` and also added your dev `SHA1-key` 
 ### Firebase Setting-up in IOS
 - Refer `https://pub.dev/packages/google_sign_in`
 - Copy the `REVERSED_CLIENT_ID` from `GoogleService-info.plist`
+- If you cant find the `REVERSED_CLIENT_ID`, make sure you created and enabled `google` signin from `authentication` inside `firebase console`
+- If you are still facing error, make sure the `bundle ID` is same in the `xcode` and the `fireabase console
+`
+- Make sure you chane all profiles , `debug`, `release` and `profile` to the same `bundle id`
+- Change the bundle id through out the app using `find and replace` option.
+
 ```console
 <key>REVERSED_CLIENT_ID</key>
 	<string>com.googleusercontent.apps.3232323223-1urjaf9ia017upf6lsdfsfk3sekdfs9gq0c9d</string>
@@ -145,6 +151,19 @@ Make sure you `enable the firebase services` and also added your dev `SHA1-key` 
 </array>
 <!-- End of the Google Sign-in Section -->
 ```
+
+- If you get error `[FirebaseCore][I-COR000005] No app has been configured yet.`, make sure you add `WidgetsFlutterBinding.ensureInitialized();` in `main()`
+```dart
+Future<void> main() async {
+  
+  WidgetsFlutterBinding.ensureInitialized(); // Ensure initialisation
+  await Firebase.initializeApp();
+  // await Get.put(Database()).initStorage();
+
+  runApp(const MyApp()); // This should be called after calling firebase and binding
+}
+```
+
 ### Multidex Error
 Change the build.gradle main file.
 ```console

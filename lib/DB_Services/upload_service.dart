@@ -2,7 +2,7 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:firebase_storage/firebase_storage.dart';
 
-class UploadHelper {
+class UploadHelperFirebase {
   Future<String?> uploadFile(File file, String path, String filename) async {
     print("Uploading the image $filename to $path");
     try {
