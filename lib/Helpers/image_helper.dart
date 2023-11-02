@@ -13,14 +13,19 @@ import 'package:image_picker/image_picker.dart';
 
 class ImageHelper {
   Future<bool> pickSingleImage(TextEditingController imgController) async {
-    final pickedFile = await ImagePicker().pickImage(
-        source: ImageSource.gallery, maxWidth: 1800, maxHeight: 1800);
-    if (pickedFile == null) {
-      return false; // No image was picked, return early
+    try {
+      final pickedFile = await ImagePicker().pickImage(
+          source: ImageSource.gallery, maxWidth: 1800, maxHeight: 1800);
+      if (pickedFile == null) {
+        return false; // No image was picked, return early
+      }
+      final imageFile = File(pickedFile.path);
+      imgController.text = imageFile.path;
+      return true;
+    } catch (e) {
+      GlobalSnackBarGet().showGetError("Error", "Invalid file type");
+      return false;
     }
-    final imageFile = File(pickedFile.path);
-    imgController.text = imageFile.path;
-    return true;
   }
 
   Future<String?> pickSingleImage_directly() async {
