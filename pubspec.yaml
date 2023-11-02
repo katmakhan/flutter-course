@@ -51,6 +51,7 @@ dependencies:
   full_screen_image: ^2.0.0
 
   path_provider: ^2.0.4
+  image_picker: ^1.0.4
   new_version: ^0.3.1
   animations: ^2.0.2
   

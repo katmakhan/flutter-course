@@ -1,8 +1,13 @@
 // ignore_for_file: camel_case_types
 
+import 'dart:io';
+
 import 'package:fluttertemplate/DB_Services/database_write.dart';
+import 'package:fluttertemplate/DB_Services/upload_helper.dart';
+import 'package:fluttertemplate/DB_Services/upload_service.dart';
 import 'package:fluttertemplate/DataModels/dm_user.dart';
 import 'package:fluttertemplate/Dialogs/custom_alert.dart';
+import 'package:fluttertemplate/Helpers/constants.dart';
 import 'package:fluttertemplate/Helpers/date_conversion.dart';
 import 'package:fluttertemplate/Helpers/global_snackbar_get.dart';
 import 'package:flutter/material.dart';
@@ -11,19 +16,23 @@ import 'package:get/get.dart';
 class Add_UserInfo_Controller extends GetxController {
   GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
-  late TextEditingController nameController, emailController;
+  late TextEditingController usernameController,
+      emailController,
+      imageController;
 
   @override
   void onInit() {
     super.onInit();
-    nameController = TextEditingController();
+    usernameController = TextEditingController();
     emailController = TextEditingController();
+    imageController = TextEditingController();
   }
 
   @override
   void onClose() {
-    nameController.dispose();
+    usernameController.dispose();
     emailController.dispose();
+    imageController.dispose();
   }
 
   String? validateEmail(String value) {
@@ -79,6 +88,12 @@ class Add_UserInfo_Controller extends GetxController {
   }
 
   Future<bool> beginUpload(BuildContext context) async {
+    // check if its firebase link
+    String username = usernameController.text;
+
+    //Uploading Image
+    bool val = await uploadImage(context, username);
+
     CustomAlert().showLoaderDialog(context, "Adding the user data");
 
     // generate the pdf model
@@ -92,7 +107,7 @@ class Add_UserInfo_Controller extends GetxController {
 
   void generateUserModel() async {
     //Getting strings
-    String name = nameController.text;
+    String name = usernameController.text;
     String email = emailController.text;
 
     // Generating the model
@@ -108,5 +123,31 @@ class Add_UserInfo_Controller extends GetxController {
 
     // Updating the use data
     await DatabaseWriteService().addToUsers(user, true);
+  }
+
+  Future<bool> uploadImage(context, username) async {
+    print("Image file to upload is: ${imageController.text}");
+    int bytes = await File(imageController.text).length();
+    if (bytes >= Constants.MAX_IMAGE_SIZE) {
+      GlobalSnackBarGet()
+          .showGetError("Error", Constants.MAX_IMAGE_SIZE_MESSAGE);
+      return false;
+    }
+
+    GlobalSnackBarGet().showGetSucess("Sucess", "All check is complete");
+
+    CustomAlert().showLoaderDialog(context, "Uploading the image....");
+
+    var result = await UploadHelperFirebase()
+        .uploadFile(File(imageController.text), "userImage/", username);
+
+    if (result.toString() != "null") {
+      GlobalSnackBarGet().showGetSucess("Sucess", "Image Uploaded");
+      imageController.text = result.toString();
+    } else {
+      GlobalSnackBarGet().showGetError("Error", "Image couldnt be uploaded");
+    }
+
+    return true;
   }
 }

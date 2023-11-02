@@ -109,9 +109,9 @@ class _RegisterState extends State<Register> {
                         // prefixIcon: Icon(Icons.email),
                       ),
                       keyboardType: TextInputType.name,
-                      controller: addstudentController.nameController,
+                      controller: addstudentController.usernameController,
                       onSaved: (value) {
-                        addstudentController.nameController.text = value!;
+                        addstudentController.usernameController.text = value!;
                       },
                       validator: (value) {
                         return addstudentController.validateName(value!);

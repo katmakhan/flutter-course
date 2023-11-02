@@ -9,27 +9,18 @@ import 'package:fluttertemplate/Helpers/constants.dart';
 import 'package:fluttertemplate/Helpers/filesize_helper.dart';
 import 'package:fluttertemplate/Helpers/global_snackbar_get.dart';
 import 'package:flutter/material.dart';
-// import 'package:image_picker/image_picker.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ImageHelper {
   Future<bool> pickSingleImage(TextEditingController imgController) async {
-    bool done = false;
-
-    // PickedFile? pickedFile = await ImagePicker()
-    //     .getImage(source: ImageSource.gallery, maxWidth: 1800, maxHeight: 1800);
-    // // .getImage(source: ImageSource.gallery, imageQuality: 100);
-    // //     .then((PickedFile? image) {
-    // //   image = null;
-    // // }
-    // // );
-
-    // if (pickedFile != null) {
-    //   File imageFile = File(pickedFile.path);
-    //   done = true;
-    //   imgController.text = imageFile.path;
-    // }
-
-    return done;
+    final pickedFile = await ImagePicker().pickImage(
+        source: ImageSource.gallery, maxWidth: 1800, maxHeight: 1800);
+    if (pickedFile == null) {
+      return false; // No image was picked, return early
+    }
+    final imageFile = File(pickedFile.path);
+    imgController.text = imageFile.path;
+    return true;
   }
 
   Future<String?> pickSingleImage_directly() async {

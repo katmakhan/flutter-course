@@ -289,3 +289,12 @@ ext.kotlin_version = '1.7.10'
 ```console
 classpath 'com.android.tools.build:gradle:7.3.0'
 ```
+
+### Using imagepicker
+- Add the following permission code inside the `info.plist` in ios to get access to `photo library`
+```console
+    <!-- Start of photo gallery Permisison -->
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>We need access to your photo library to pick images for your profile.</string>
+    <!-- End of photo gallery Permisison -->
+```

@@ -156,7 +156,7 @@ class DatabaseReadService {
   }
 
   // Realtime Listeners for Dictionary
-  Stream<List<Dm_User>> getUsers(int limit) {
+  Stream<List<Dm_User>> getRealtimeData(int limit) {
     return FirebaseDatabase.instance
         .ref("RealTime")
         .limitToFirst(limit) // To preserve the server load
