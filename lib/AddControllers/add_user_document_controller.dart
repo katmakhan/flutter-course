@@ -1,7 +1,6 @@
-// ignore_for_file: camel_case_types
+// ignore_for_file: camel_case_types, use_build_context_synchronously
 
 import 'dart:io';
-
 import 'package:fluttertemplate/DB_Services/database_write.dart';
 import 'package:fluttertemplate/DB_Services/upload_helper.dart';
 import 'package:fluttertemplate/DB_Services/upload_service.dart';
@@ -13,26 +12,24 @@ import 'package:fluttertemplate/Helpers/global_snackbar_get.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Add_UserInfo_Controller extends GetxController {
+class Add_User_Document_Controller extends GetxController {
   GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
-  late TextEditingController usernameController,
-      emailController,
-      imageController;
+  late TextEditingController usernameController, emailController, pdfController;
 
   @override
   void onInit() {
     super.onInit();
     usernameController = TextEditingController();
     emailController = TextEditingController();
-    imageController = TextEditingController();
+    pdfController = TextEditingController();
   }
 
   @override
   void onClose() {
     usernameController.dispose();
     emailController.dispose();
-    imageController.dispose();
+    pdfController.dispose();
   }
 
   String? validateEmail(String value) {
@@ -70,7 +67,7 @@ class Add_UserInfo_Controller extends GetxController {
     return null;
   }
 
-  Future<bool> checkUpload(context) async {
+  Future<bool> checkUpload(context, String filename, bool toclose) async {
     final isValid = signupFormKey.currentState!.validate();
 
     // check if its validated or not
@@ -79,7 +76,7 @@ class Add_UserInfo_Controller extends GetxController {
           .showGetError("Not Complete", "Please fill all the details");
       return false;
     } else {
-      beginUpload(context);
+      beginUpload(context, filename, toclose);
     }
 
     signupFormKey.currentState!.save();
@@ -87,13 +84,26 @@ class Add_UserInfo_Controller extends GetxController {
     return isValid;
   }
 
-  Future<bool> beginUpload(BuildContext context) async {
+  Future<bool> beginUpload(
+      BuildContext context, String filename, bool toclose) async {
     // check if its firebase link
     String username = usernameController.text;
 
-    //Uploading Image
-    bool val = await uploadImage(context, username);
+    //Passing Variables
+    String mainpath = "UserDocuments";
+    String subpath = username;
+    // String filename = pdfController.text;
 
+    //Uploading Image
+    bool val = await UploadHelperIMGPDF()
+        .uploadPDF(pdfController, context, mainpath, subpath, filename);
+
+    // If failed to upload, return false
+    if (!val) {
+      return false;
+    }
+
+    //Loader called
     CustomAlert().showLoaderDialog(context, "Adding the user data");
 
     // generate the pdf model
@@ -101,6 +111,11 @@ class Add_UserInfo_Controller extends GetxController {
 
     // Loader remove
     Navigator.pop(context);
+
+    //Close the activity
+    if (toclose) {
+      Navigator.pop(context);
+    }
 
     return true;
   }
@@ -123,31 +138,5 @@ class Add_UserInfo_Controller extends GetxController {
 
     // Updating the use data
     await DatabaseWriteService().addToUsers(user, true);
-  }
-
-  Future<bool> uploadImage(context, username) async {
-    print("Image file to upload is: ${imageController.text}");
-    int bytes = await File(imageController.text).length();
-    if (bytes >= Constants.MAX_IMAGE_SIZE) {
-      GlobalSnackBarGet()
-          .showGetError("Error", Constants.MAX_IMAGE_SIZE_MESSAGE);
-      return false;
-    }
-
-    GlobalSnackBarGet().showGetSucess("Sucess", "All check is complete");
-
-    CustomAlert().showLoaderDialog(context, "Uploading the image....");
-
-    var result = await UploadHelperFirebase()
-        .uploadFile(File(imageController.text), "userImage/", username);
-
-    if (result.toString() != "null") {
-      GlobalSnackBarGet().showGetSucess("Sucess", "Image Uploaded");
-      imageController.text = result.toString();
-    } else {
-      GlobalSnackBarGet().showGetError("Error", "Image couldnt be uploaded");
-    }
-
-    return true;
   }
 }

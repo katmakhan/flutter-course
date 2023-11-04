@@ -21,6 +21,7 @@ class ImageHelper {
       }
       final imageFile = File(pickedFile.path);
       imgController.text = imageFile.path;
+      print("Image path is: ${imageFile.path}");
       return true;
     } catch (e) {
       GlobalSnackBarGet().showGetError("Error", "Invalid file type");

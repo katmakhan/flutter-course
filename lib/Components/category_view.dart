@@ -2,9 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ShowCategory extends StatelessWidget {
-  String Image, desc, title, url;
-  ShowCategory(
-      {required this.Image,
+  final String Image, desc, title, url;
+  const ShowCategory(
+      {super.key,
+      required this.Image,
       required this.desc,
       required this.title,
       required this.url});

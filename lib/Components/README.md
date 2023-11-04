@@ -1,4 +1,4 @@
 ### Bottom navy bar
-``console
+```console
 https://github.com/pedromassango/bottom_navy_bar
 ```

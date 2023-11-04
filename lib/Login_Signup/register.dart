@@ -1,4 +1,4 @@
-import 'package:fluttertemplate/AddControllers/add_userinfo_controller.dart';
+import 'package:fluttertemplate/AddControllers/add_user_image_controller.dart';
 import 'package:fluttertemplate/Colors/colors.dart';
 import 'package:fluttertemplate/Helpers/constants.dart';
 import 'package:fluttertemplate/Helpers/global_snackbar_get.dart';
@@ -16,8 +16,8 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register> {
   bool? _isChecked = false;
-  Add_UserInfo_Controller addstudentController =
-      Get.put(Add_UserInfo_Controller());
+  Add_User_Image_Controller addstudentController =
+      Get.put(Add_User_Image_Controller());
 
   @override
   void initState() {
@@ -188,8 +188,8 @@ class _RegisterState extends State<Register> {
                 InkWell(
                   onTap: () async {
                     if (_isChecked!) {
-                      bool result =
-                          await addstudentController.checkUpload(context);
+                      bool result = await addstudentController.checkUpload(
+                          context, false);
 
                       if (result) {
                         Navigator.of(context).pushAndRemoveUntil(

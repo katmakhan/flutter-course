@@ -1,7 +1,8 @@
 // ignore_for_file: camel_case_types
 
 import 'package:flutter/material.dart';
-import 'package:fluttertemplate/AddActivities/add_act_userdetails.dart';
+import 'package:fluttertemplate/AddActivities/add_act_user_doc.dart';
+import 'package:fluttertemplate/AddActivities/add_act_user_image.dart';
 import 'package:fluttertemplate/Components/list_view.dart';
 import 'package:fluttertemplate/Dropdown/single_dropdown.dart';
 import 'package:fluttertemplate/Login_Pages/sign_in_1.dart';
@@ -31,7 +32,13 @@ class _login_listViewState extends State<login_listView> {
               custsubtext: "Drop down functionality",
               onTap: onTap3),
           Cust_ListView(
-              custtext: "UserAdd", custsubtext: "Adding Users", onTap: onTap4)
+              custtext: "UploadImages",
+              custsubtext: "Adding user profile",
+              onTap: onTap4),
+          Cust_ListView(
+              custtext: "UploadDocuments",
+              custsubtext: "Adding user documents",
+              onTap: onTap5)
         ]),
       ),
     );
@@ -61,7 +68,16 @@ class _login_listViewState extends State<login_listView> {
   onTap4() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const ActAddUsers(false, null)),
+      MaterialPageRoute(
+          builder: (context) => const ActAddUserImage(false, null)),
+    );
+  }
+
+  onTap5() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => const ActAddUserDocuments(false, null)),
     );
   }
 }

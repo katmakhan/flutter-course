@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertemplate/AddControllers/add_userinfo_controller.dart';
+import 'package:fluttertemplate/AddControllers/add_user_image_controller.dart';
 import 'package:fluttertemplate/Colors/colors.dart';
 import 'package:fluttertemplate/Components/appbar.dart';
 import 'package:fluttertemplate/Components/cust_button.dart';
@@ -9,30 +9,31 @@ import 'package:fluttertemplate/Components/upload_image_button.dart';
 import 'package:fluttertemplate/DataModels/dm_user.dart';
 import 'package:get/get.dart';
 
-class ActAddUsers extends StatefulWidget {
+class ActAddUserImage extends StatefulWidget {
   final bool isedit;
   final Dm_User? user;
-  const ActAddUsers(this.isedit, this.user, {Key? key}) : super(key: key);
+  const ActAddUserImage(this.isedit, this.user, {Key? key}) : super(key: key);
 
   @override
-  State<ActAddUsers> createState() => _ActAddUsersState();
+  State<ActAddUserImage> createState() => _ActAddUserImageState();
 }
 
-class _ActAddUsersState extends State<ActAddUsers> {
+class _ActAddUserImageState extends State<ActAddUserImage> {
   //List<Widget> textFormFields = [];
 
-  final Add_UserInfo_Controller controller = Get.put(Add_UserInfo_Controller());
+  final Add_User_Image_Controller controller =
+      Get.put(Add_User_Image_Controller());
 
   bool photo_added = false;
   @override
   Widget build(BuildContext context) {
     assign_allvalues();
-    print("Image is now $photo_added");
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(50),
-        child: CustomAppbar(title: widget.isedit ? 'Edit User' : "Add User"),
+        child: CustomAppbar(
+            title: widget.isedit ? 'Edit User Image' : "Add User Image"),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -45,21 +46,22 @@ class _ActAddUsersState extends State<ActAddUsers> {
                     photo_added,
                     FirebaseAuth.instance.currentUser!.photoURL.toString(),
                     changePhotoImage),
-                Cust_Form_field_big(
+                const Cust_Form_field_big(
                   cus_label: "Name",
                   hintText: 'User name',
                   keyboardType: TextInputType.text,
-                  validator: () => {},
+                  // validator: () => {},
                 ),
-                Cust_Form_field_big(
+                const Cust_Form_field_big(
                   cus_label: "Bio",
                   hintText: 'Describe about yourself',
                   keyboardType: TextInputType.text,
-                  validator: () => {},
+                  // validator: () => {},
                 ),
                 Cust_Button(
-                  custtext: widget.isedit ? "Edit User" : 'Add User',
-                  onTap: () => {controller.checkUpload(context)},
+                  custtext:
+                      widget.isedit ? "Edit User Image" : 'Add User Image',
+                  onTap: () => {controller.checkUpload(context, true)},
                 )
               ],
             ),
@@ -77,7 +79,6 @@ class _ActAddUsersState extends State<ActAddUsers> {
 
   void changePhotoImage(bool photo_added_updated) {
     photo_added = photo_added_updated;
-    print("Selected image $photo_added");
     setState(() {});
   }
 }
