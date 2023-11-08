@@ -298,3 +298,66 @@ classpath 'com.android.tools.build:gradle:7.3.0'
     <string>We need access to your photo library to pick images for your profile.</string>
     <!-- End of photo gallery Permisison -->
 ```
+
+### Notification
+- add in `pubspec.yaml`
+```yaml
+# show notification
+flutter_local_notifications: ^16.1.0
+
+# listen for notification
+rxdart: ^0.27.7
+```
+
+- add this to `ios` >>`Runner`>> `AppDelegate.swift`
+- also add `import` function on top of the `AppDelegate.swift`
+```console
+import flutter_local_notifications
+```
+- add this code inside the `bool` function, above the `return` callback
+```console
+FlutterLocalNotificationsPlugin.setPluginRegistrantCallback { (registry) in
+    GeneratedPluginRegistrant.register(with: registry)}
+```
+- just above the `return` statement
+```console
+// For notification
+if #available(iOS 10.0, *) {
+         UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
+      }
+```
+
+- sample code
+```console
+import UIKit
+import Flutter
+
+import flutter_local_notifications //Import for notification
+
+@UIApplicationMain
+@objc class AppDelegate: FlutterAppDelegate {
+  override func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+  ) -> Bool {
+    // For notification
+    FlutterLocalNotificationsPlugin.setPluginRegistrantCallback { (registry) in
+    GeneratedPluginRegistrant.register(with: registry)}
+
+    GeneratedPluginRegistrant.register(with: self)
+    // For notification
+    if #available(iOS 10.0, *) {
+      UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
+    }
+    return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+  }
+}
+
+```
+- add the `initialisation` in the `main.dart`
+- it shoulde be inside the `main` function above `runApp(const MyApp());`
+```console
+await NotificationService().initNotification();
+
+runApp(const MyApp());
+```

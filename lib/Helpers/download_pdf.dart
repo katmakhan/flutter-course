@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:open_file_safe/open_file_safe.dart';
+// import 'package:open_file_safe/open_file_safe.dart';
 import 'package:path_provider/path_provider.dart';
 
 class DownloadPDF {
@@ -27,7 +27,7 @@ class DownloadPDF {
       print("Something went wrong while downloading pdf");
     }
 
-    OpenFile.open(file.path);
+    // OpenFile.open(file.path);
   }
 
   // static Future<void> saveFile(String fileName) async {

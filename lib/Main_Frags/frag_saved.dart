@@ -1,4 +1,5 @@
 import 'package:fluttertemplate/Components/list_view_slidable.dart';
+import 'package:fluttertemplate/PushNotification/notifcation_service.dart';
 import 'package:fluttertemplate/RecyclerControllers/users_controller.dart';
 import 'package:fluttertemplate/Dialogs/no_resulfound.dart';
 import 'package:flutter/material.dart';
@@ -71,6 +72,8 @@ class _FragSavedState extends State<FragSaved> {
                     //       builder: (context) => ActHome(
                     //           referalsController.referalList[index]),
                     //     ));
+                    NotificationService().showNotification(
+                        title: 'Sample title', body: 'It works!');
                   },
                   child: Cust_ListView_Slidable(
                     mainheading:

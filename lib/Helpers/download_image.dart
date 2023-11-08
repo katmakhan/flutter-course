@@ -3,7 +3,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
-import 'package:open_file_safe/open_file_safe.dart';
+// import 'package:open_file_safe/open_file_safe.dart';
 import 'dart:ui' as ui;
 
 class DownloadImage {
@@ -15,7 +15,7 @@ class DownloadImage {
     file.writeAsBytes(pngBytes);
     print("Succesfully downloaded..");
 
-    OpenFile.open(file.path);
+    // OpenFile.open(file.path);
   }
 
   Future capturePng(GlobalKey globalKey, filename) async {

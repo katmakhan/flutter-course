@@ -18,10 +18,17 @@
 		</dict>
 	</array>
 	<!-- End of the Google Sign-in Section -->
+
 	<!-- Start of photo gallery Permisison -->
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need access to your photo library to pick images for your profile.</string>
 	<!-- End of photo gallery Permisison -->
+
+	<!-- Start of impeller render error -->
+	<!-- <key>FLTEnableImpeller</key>
+  	<false /> -->
+	<!-- End of impeller render error -->
+
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>

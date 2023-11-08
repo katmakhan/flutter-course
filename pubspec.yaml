@@ -32,7 +32,8 @@ dependencies:
     sdk: flutter
 
   # Flutter Dependencies
-  flutter_svg: ^0.22.0
+  # flutter_svg: ^0.22.0
+  flutter_svg: ^2.0.9
   flutter_rating_bar: ^4.0.0
   
   otp_text_field: ^1.0.0
@@ -57,7 +58,12 @@ dependencies:
   flutter_document_picker: ^5.0.0
   image_picker: ^1.0.4
 
-  open_file_safe: ^3.2.3
+  # open_file_safe: ^3.2.3
+  open_file_safe:
+    git:
+      url: https://github.com/katmakhan/open_file_safe.git
+      ref: master
+
   url_launcher: ^6.0.10
 
   dio: ^4.0.6
@@ -84,6 +90,13 @@ dependencies:
   pattern_formatter: ^2.0.0
   align_positioned: ^3.0.0
   bouncing_widget: ^2.0.0
+
+  # show notification
+  flutter_local_notifications: ^16.1.0
+  # flutter_local_notifications: ^8.2.0
+
+  # listen for notification
+  # rxdart: ^0.27.7
 
   another_carousel_pro:
     git:
