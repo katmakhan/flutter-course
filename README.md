@@ -361,3 +361,27 @@ await NotificationService().initNotification();
 
 runApp(const MyApp());
 ```
+
+### Error with file_version_info
+- change the file at `/Users/name/.pub-cache/hosted/pub.dev/package_info_plus_windows-2.1.0/lib/src/file_version_info.dart`
+- from this
+```console
+class _LANGANDCODEPAGE extends Struct {
+  @Uint16()
+  external int? wLanguage;
+
+  @Uint16()
+  external int? wCodePage;
+}
+```
+
+- to this
+```console
+class _LANGANDCODEPAGE extends Struct {
+  @Uint16()
+  external int wLanguage;
+
+  @Uint16()
+  external int wCodePage;
+}
+```
