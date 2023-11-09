@@ -36,6 +36,7 @@ class Cust_Form_field extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: TextFormField(
           maxLines: 1,
+          // autofillHints: [AutofillHints.birthday],
           style: const TextStyle(
               fontFamily: "Kanit",
               fontWeight: FontWeight.w500,
@@ -47,7 +48,6 @@ class Cust_Form_field extends StatelessWidget {
               borderRadius: BorderRadius.circular(13),
             ),
             hintText: hintText,
-
             labelStyle: TextStyle(
                 fontFamily: "Kanit",
                 fontWeight: FontWeight.w400,

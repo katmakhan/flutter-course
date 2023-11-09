@@ -72,8 +72,8 @@ class _FragSavedState extends State<FragSaved> {
                     //       builder: (context) => ActHome(
                     //           referalsController.referalList[index]),
                     //     ));
-                    NotificationService().showNotification(
-                        title: 'Sample title', body: 'It works!');
+                    NotificationService()
+                        .showNotification(title: 'Hello', body: 'It works!');
                   },
                   child: Cust_ListView_Slidable(
                     mainheading:

@@ -7,6 +7,7 @@ import 'package:fluttertemplate/Colors/colors.dart';
 import 'package:fluttertemplate/Helpers/get_database.dart';
 import 'package:fluttertemplate/PushNotification/notifcation_service.dart';
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -24,6 +25,12 @@ void main() async {
   // await FirebaseAppCheck.instance.activate(
   //     // androidProvider: AndroidProvider.playIntegrity,
   //     appleProvider: AppleProvider.appAttest);
+
+  await Permission.notification.isDenied.then((value) {
+    if (value) {
+      Permission.notification.request();
+    }
+  });
 
   runApp(const MyApp());
 }

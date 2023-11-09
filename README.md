@@ -361,6 +361,20 @@ await NotificationService().initNotification();
 
 runApp(const MyApp());
 ```
+- add to android manifest, for API 33 or greater
+```console
+<uses-permission android:name="android.permission.POST_NOTIFICATIONS"/> 
+```
+- add to main function, to request the acess, above `runApp(const MyApp());` function
+```console
+await Permission.notification.isDenied.then((value) {
+        if (value) {
+          Permission.notification.request();
+        }
+      });
+
+runApp(const MyApp());
+```
 
 ### Error with file_version_info
 - change the file at `/Users/name/.pub-cache/hosted/pub.dev/package_info_plus_windows-2.1.0/lib/src/file_version_info.dart`
