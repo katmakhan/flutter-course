@@ -68,6 +68,9 @@ dependencies:
 
   dio: ^4.0.6
 
+  # PDF
+  pdf: ^3.10.6
+
   firebase_auth: ^4.4.1
   firebase_database: ^10.1.0
   firebase_remote_config: ^4.0.2
