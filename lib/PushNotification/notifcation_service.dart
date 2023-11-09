@@ -23,16 +23,36 @@ class NotificationService {
             (NotificationResponse notificationResponse) async {});
   }
 
-  notificationDetails() {
+// channelName is a human-readable name or title for the notification channel.
+// channelID is a unique identifier for each notification channel in your app.
+
+  notificationDetailsBasic() {
     return const NotificationDetails(
-        android: AndroidNotificationDetails('channelID', 'basic_notification',
+        android: AndroidNotificationDetails(
+            'basic_notification', 'Notifications',
+            channelDescription: "To show notification from app",
             importance: Importance.max),
         iOS: DarwinNotificationDetails());
   }
 
-  Future showNotification(
+  notificationDetailsOrders() {
+    return const NotificationDetails(
+        android: AndroidNotificationDetails(
+            'order_notification', 'Order Notifications',
+            channelDescription: "To show notification for orders",
+            importance: Importance.max),
+        iOS: DarwinNotificationDetails());
+  }
+
+  Future showNotificationBasic(
       {int id = 0, String? title, String? body, String? payLoad}) async {
     return notificationsPlugin.show(
-        id, title, body, await notificationDetails());
+        id, title, body, await notificationDetailsBasic());
+  }
+
+  Future showNotificationOrders(
+      {int id = 0, String? title, String? body, String? payLoad}) async {
+    return notificationsPlugin.show(
+        id, title, body, await notificationDetailsBasic());
   }
 }
