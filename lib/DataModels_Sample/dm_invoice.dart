@@ -51,3 +51,57 @@ class dm_invoice {
     return data;
   }
 }
+
+dm_invoice Invoice_sample = dm_invoice(
+    invoiceDate: "24/07/2023",
+    invoiceNum: 23234,
+    invoiceItems: <dm_item>[
+      dm_item(
+          itemDescrp: "Jaba",
+          itemName: "Super",
+          itemPrice: 23.55,
+          itemQty: 45,
+          itemVat: 45.6),
+      dm_item(
+          itemDescrp: "Jaba",
+          itemName: "Super",
+          itemPrice: 23.55,
+          itemQty: 45,
+          itemVat: 45.6),
+      dm_item(
+          itemDescrp: "Jaba",
+          itemName: "Super",
+          itemPrice: 23.55,
+          itemQty: 45,
+          itemVat: 45.6),
+      dm_item(
+          itemDescrp: "Jaba",
+          itemName: "Super",
+          itemPrice: 23.55,
+          itemQty: 45,
+          itemVat: 45.6),
+      dm_item(
+          itemDescrp: "Jaba",
+          itemName: "Super",
+          itemPrice: 23.55,
+          itemQty: 45,
+          itemVat: 45.6),
+      dm_item(
+          itemDescrp: "Jaba",
+          itemName: "Super",
+          itemPrice: 23.55,
+          itemQty: 45,
+          itemVat: 45.6),
+    ],
+    invoiceCust: dm_customer(
+        cusAddress: "Super House, 24th Apartment",
+        cusMail: "btech2gmail.com",
+        cusMob: "+918383833",
+        cusName: "Awsome"),
+    invoiceDescrp: "Invoice to the customer",
+    invoiceDuedate: "24/07/2024",
+    invoiceSupp: dm_supplier(
+        suppAddress: "Supplier House, 24th Realestate",
+        suppMail: "supp@gmail.com",
+        suppMob: "+9178999933",
+        suppName: "Supplier Name"));

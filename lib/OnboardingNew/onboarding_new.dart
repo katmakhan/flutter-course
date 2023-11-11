@@ -53,7 +53,7 @@ class _OnBoardingNewState extends State<OnBoardingNew> {
             flex: 3,
             child: PageView.builder(
               controller: pageController,
-              itemCount: listOfItems.length,
+              itemCount: listOfItems_sample.length,
               onPageChanged: (newIndex) {
                 setState(() {
                   currentIndex = newIndex;
@@ -74,7 +74,7 @@ class _OnBoardingNewState extends State<OnBoardingNew> {
                         child: animationDo(
                           index,
                           100,
-                          Image.asset(listOfItems[index].img),
+                          Image.asset(listOfItems_sample[index].img),
                         ),
                       ),
 
@@ -85,7 +85,7 @@ class _OnBoardingNewState extends State<OnBoardingNew> {
                             index,
                             300,
                             Text(
-                              listOfItems[index].title,
+                              listOfItems_sample[index].title,
                               textAlign: TextAlign.center,
                               style: Constants.headingTextStyle,
                             ),
@@ -96,7 +96,7 @@ class _OnBoardingNewState extends State<OnBoardingNew> {
                         index,
                         500,
                         Text(
-                          listOfItems[index].subTitle,
+                          listOfItems_sample[index].subTitle,
                           textAlign: TextAlign.center,
                           style: Constants.headingTextStyle,
                         ),
@@ -117,7 +117,7 @@ class _OnBoardingNewState extends State<OnBoardingNew> {
                 /// PAGE INDICATOR
                 SmoothPageIndicator(
                   controller: pageController,
-                  count: listOfItems.length,
+                  count: listOfItems_sample.length,
                   effect: const ExpandingDotsEffect(
                     spacing: 6.0,
                     radius: 10.0,

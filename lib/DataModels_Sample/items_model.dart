@@ -11,7 +11,7 @@ class Items {
   });
 }
 
-List<Items> listOfItems = [
+List<Items> listOfItems_sample = [
   Items(
     img: "png_onboarding2/1.png",
     title: "Discover the best medical\nschool and job",

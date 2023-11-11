@@ -93,6 +93,9 @@ dependencies:
   pattern_formatter: ^2.0.0
   align_positioned: ^3.0.0
   bouncing_widget: ^2.0.0
+  
+  # http requests
+  http: ^0.13.6
 
   # show notification
   flutter_local_notifications: ^16.1.0
@@ -144,6 +147,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/avatars/
     - assets/images/
     - assets/png_bg/
     - assets/png_logo/
