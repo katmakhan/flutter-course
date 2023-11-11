@@ -34,7 +34,6 @@ class InvoiceComponents {
         ];
       }).toList();
     }
-
     return TableHelper.fromTextArray(
         border: null,
         data: tabledata,

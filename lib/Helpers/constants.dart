@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttertemplate/Colors/colors.dart';
 
 class Constants {
+  static const String GOOGLEAPI = "GOOGLE_API";
+
   // Size for uplaod
   static const String MAX_IMAGE_SIZE_MESSAGE = "Image should be less than 1MB";
   static const double MAX_IMAGE_SIZE = 1024 * 1024;

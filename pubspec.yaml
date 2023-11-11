@@ -95,14 +95,18 @@ dependencies:
   bouncing_widget: ^2.0.0
   
   # http requests
-  http: ^0.13.6
+  # http: ^0.13.6
 
   # show notification
   flutter_local_notifications: ^16.1.0
-  # flutter_local_notifications: ^8.2.0
-
   # listen for notification
   # rxdart: ^0.27.7
+
+
+  # Google Maps , Tracking
+  flutter_polyline_points: ^1.0.0
+  google_maps_flutter: ^2.5.0
+  location: ^5.0.3
 
   another_carousel_pro:
     git:

@@ -6,6 +6,7 @@ import 'package:fluttertemplate/AddActivities/add_act_user_image.dart';
 import 'package:fluttertemplate/Components/list_view.dart';
 import 'package:fluttertemplate/DataModels_Sample/dm_invoice.dart';
 import 'package:fluttertemplate/Dropdown/single_dropdown.dart';
+import 'package:fluttertemplate/GoogleMaps/OrderTracking.dart';
 import 'package:fluttertemplate/Login_Pages/sign_in_1.dart';
 import 'package:fluttertemplate/Login_Pages/sign_in_2.dart';
 import 'package:fluttertemplate/PDFInvoice/pdfinvoice.dart';
@@ -45,7 +46,11 @@ class _login_listViewState extends State<login_listView> {
           Cust_ListView(
               custtext: "Invoice",
               custsubtext: "Generating Invoices",
-              onTap: onTap6)
+              onTap: onTap6),
+          Cust_ListView(
+              custtext: "Google Maps",
+              custsubtext: "Tracking orders",
+              onTap: onTap7)
         ]),
       ),
     );
@@ -94,5 +99,12 @@ class _login_listViewState extends State<login_listView> {
     final pdffile = await InvoiceHelper.generatePDF(Invoice);
 
     PdfHelper.openPdf(pdffile);
+  }
+
+  onTap7() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const orderTrackingMaps()),
+    );
   }
 }

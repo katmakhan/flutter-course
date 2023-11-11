@@ -399,3 +399,18 @@ class _LANGANDCODEPAGE extends Struct {
   external int wCodePage;
 }
 ```
+
+### Google Maps
+- In `Android`, Specify your API key in the application manifest android/app/src/main/AndroidManifest.xml
+```console
+<manifest ...
+  <application ...
+    <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="YOUR KEY HERE"/>
+```
+- In `IOS`, go to `AppDelegate.swift` and also `import GoogleMaps`
+```console
+import GoogleMaps
+
+GMSServices.provideAPIKey("YOUR KEY HERE")
+```
