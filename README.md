@@ -414,3 +414,23 @@ import GoogleMaps
 
 GMSServices.provideAPIKey("YOUR KEY HERE")
 ```
+
+### Refresh View after adding new data
+- There is no method to actually refresh the page
+- It can be done on `Oninit` or `Build` state
+- So the work arround is to use `async` on `ontap` method
+- and calling `setstate` after the await
+```console
+InkWell(
+  onTap: () async {
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => ActAddChapters(
+              widget.coursesdata.crKey.toString())),
+    );
+    setState(() {});
+  },
+  child: AddChaptersButton(),
+),
+```
