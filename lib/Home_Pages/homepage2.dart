@@ -1,5 +1,5 @@
 // ignore_for_file: camel_case_types
-import 'package:fluttertemplate/Components/bottom_navy_bar.dart';
+import 'package:fluttertemplate/Components/NavBar/bottom_navy_bar.dart';
 import 'package:fluttertemplate/Helpers/firebase_remoteconfig.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertemplate/Main_Frags/frag_profile.dart';

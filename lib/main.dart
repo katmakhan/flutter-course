@@ -6,6 +6,7 @@ import 'package:fluttertemplate/Auth_Service/auth_service.dart';
 import 'package:fluttertemplate/Colors/colors.dart';
 import 'package:fluttertemplate/Helpers/get_database.dart';
 import 'package:fluttertemplate/PushNotification/notifcation_service.dart';
+import 'package:fluttertemplate/PushNotification/notifcation_service_firebase.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -19,6 +20,7 @@ void main() async {
   await Firebase.initializeApp();
   await FirebaseAppCheck.instance.activate();
   await NotificationService().initNotification();
+  await NotificationServiceFirebase().initNotificationFirebase();
   await Get.put(Database()).initStorage();
 
   // FirebaseDatabase.instance.setPersistenceEnabled(true);

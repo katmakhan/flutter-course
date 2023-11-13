@@ -74,6 +74,7 @@ dependencies:
   firebase_auth: ^4.4.1
   firebase_database: ^10.1.0
   firebase_remote_config: ^4.0.2
+  firebase_messaging: ^14.6.7
   firebase_core: ^2.9.0
   firebase_storage: ^11.1.0
   firebase_app_check: ^0.1.2+1
@@ -104,9 +105,9 @@ dependencies:
 
 
   # Google Maps , Tracking
-  flutter_polyline_points: ^1.0.0
-  google_maps_flutter: ^2.5.0
-  location: ^5.0.3
+  # flutter_polyline_points: ^1.0.0
+  # google_maps_flutter: ^2.5.0
+  # location: ^5.0.3
 
   another_carousel_pro:
     git:

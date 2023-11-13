@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertemplate/Components/list_view_slidable_stock.dart';
+import 'package:fluttertemplate/Components/SingleItems/list_view_slidable_stock.dart';
 import 'package:fluttertemplate/DB_Services/database_read.dart';
 import 'package:fluttertemplate/DataModels/dm_stock.dart';
 

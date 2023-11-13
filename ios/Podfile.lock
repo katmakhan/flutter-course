@@ -13,6 +13,9 @@ PODS:
   - Firebase/Database (10.15.0):
     - Firebase/CoreOnly
     - FirebaseDatabase (~> 10.15.0)
+  - Firebase/Messaging (10.15.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (~> 10.15.0)
   - Firebase/RemoteConfig (10.15.0):
     - Firebase/CoreOnly
     - FirebaseRemoteConfig (~> 10.15.0)
@@ -33,6 +36,10 @@ PODS:
     - Flutter
   - firebase_database (10.2.5):
     - Firebase/Database (= 10.15.0)
+    - firebase_core
+    - Flutter
+  - firebase_messaging (14.6.7):
+    - Firebase/Messaging (= 10.15.0)
     - firebase_core
     - Flutter
   - firebase_remote_config (4.2.5):
@@ -74,6 +81,15 @@ PODS:
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/UserDefaults (~> 7.8)
     - PromisesObjC (~> 2.1)
+  - FirebaseMessaging (10.15.0):
+    - FirebaseCore (~> 10.0)
+    - FirebaseInstallations (~> 10.0)
+    - GoogleDataTransport (~> 9.2)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/Environment (~> 7.8)
+    - GoogleUtilities/Reachability (~> 7.8)
+    - GoogleUtilities/UserDefaults (~> 7.8)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
   - FirebaseRemoteConfig (10.15.0):
     - FirebaseABTesting (~> 10.0)
     - FirebaseCore (~> 10.0)
@@ -100,6 +116,10 @@ PODS:
   - google_sign_in_ios (0.0.1):
     - Flutter
     - GoogleSignIn (~> 6.2)
+  - GoogleDataTransport (9.2.5):
+    - GoogleUtilities/Environment (~> 7.7)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+    - PromisesObjC (< 3.0, >= 1.2)
   - GoogleMaps (6.2.1):
     - GoogleMaps/Maps (= 6.2.1)
   - GoogleMaps/Base (6.2.1)
@@ -135,6 +155,11 @@ PODS:
   - leveldb-library (1.22.2)
   - location (0.0.1):
     - Flutter
+  - nanopb (2.30909.1):
+    - nanopb/decode (= 2.30909.1)
+    - nanopb/encode (= 2.30909.1)
+  - nanopb/decode (2.30909.1)
+  - nanopb/encode (2.30909.1)
   - open_file_safe (0.0.1):
     - Flutter
   - package_info_plus (0.4.5):
@@ -157,6 +182,7 @@ DEPENDENCIES:
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_database (from `.symlinks/plugins/firebase_database/ios`)
+  - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
   - firebase_remote_config (from `.symlinks/plugins/firebase_remote_config/ios`)
   - firebase_storage (from `.symlinks/plugins/firebase_storage/ios`)
   - Flutter (from `Flutter`)
@@ -187,15 +213,18 @@ SPEC REPOS:
     - FirebaseCoreInternal
     - FirebaseDatabase
     - FirebaseInstallations
+    - FirebaseMessaging
     - FirebaseRemoteConfig
     - FirebaseStorage
     - FMDB
+    - GoogleDataTransport
     - GoogleMaps
     - GoogleSignIn
     - GoogleUtilities
     - GTMAppAuth
     - GTMSessionFetcher
     - leveldb-library
+    - nanopb
     - PromisesObjC
     - RecaptchaInterop
 
@@ -208,6 +237,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_core/ios"
   firebase_database:
     :path: ".symlinks/plugins/firebase_database/ios"
+  firebase_messaging:
+    :path: ".symlinks/plugins/firebase_messaging/ios"
   firebase_remote_config:
     :path: ".symlinks/plugins/firebase_remote_config/ios"
   firebase_storage:
@@ -246,6 +277,7 @@ SPEC CHECKSUMS:
   firebase_auth: fe628f773ffc4ccaf4a3c0d6cb45e9aae90c94bd
   firebase_core: 77172d0a9d8d19d07606e24406e4c2fc14d3265b
   firebase_database: a161e78aa8e77aa78b0bb99d9d1e6c5a7047f860
+  firebase_messaging: 7e286d6a66bc283b1a3dbf5444b8561e1cd05807
   firebase_remote_config: 4e86f0a845ec56a505c735442493996752b19209
   firebase_storage: 9e849862a6dd01d841352474a14dbcfb3cecc1b8
   FirebaseABTesting: 7fa3bca17f79ac433301d20d5cd33401f7738dca
@@ -258,6 +290,7 @@ SPEC CHECKSUMS:
   FirebaseCoreInternal: 2f4bee5ed00301b5e56da0849268797a2dd31fb4
   FirebaseDatabase: f93f1481c7e9e3d77af960cdff82a408d37693e6
   FirebaseInstallations: cae95cab0f965ce05b805189de1d4c70b11c76fb
+  FirebaseMessaging: 0c0ae1eb722ef0c07f7801e5ded8dccd1357d6d4
   FirebaseRemoteConfig: 64b6ada098c649304114a817effd7e5f87229b11
   FirebaseStorage: 1d4be239ea32fb3c0f3680a6f2b706d6cabe37f2
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
@@ -266,6 +299,7 @@ SPEC CHECKSUMS:
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   google_maps_flutter_ios: abdac20d6ce8931f6ebc5f46616df241bfaa2cfd
   google_sign_in_ios: 1256ff9d941db546373826966720b0c24804bcdd
+  GoogleDataTransport: 54dee9d48d14580407f8f5fbf2f496e92437a2f2
   GoogleMaps: 20d7b12be49a14287f797e88e0e31bc4156aaeb4
   GoogleSignIn: 5651ce3a61e56ca864160e79b484cd9ed3f49b7a
   GoogleUtilities: 13e2c67ede716b8741c7989e26893d151b2b2084
@@ -274,6 +308,7 @@ SPEC CHECKSUMS:
   image_picker_ios: 4a8aadfbb6dc30ad5141a2ce3832af9214a705b5
   leveldb-library: f03246171cce0484482ec291f88b6d563699ee06
   location: d5cf8598915965547c3f36761ae9cc4f4e87d22e
+  nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
   open_file_safe: 84c01ac91378bd9166ab570d7f22f4fb3532141a
   package_info_plus: 6c92f08e1f853dc01228d6f553146438dafcd14e
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943

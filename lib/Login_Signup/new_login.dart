@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertemplate/Components/button.dart';
+import 'package:fluttertemplate/Components/Buttons/button.dart';
 import 'package:fluttertemplate/Components/square_tile.dart';
-import 'package:fluttertemplate/Components/textfield.dart';
+import 'package:fluttertemplate/Components/FormFields/textfield.dart';
 
 class LoginPageNew extends StatelessWidget {
   LoginPageNew({super.key});

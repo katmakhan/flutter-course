@@ -1,4 +1,4 @@
-import 'package:fluttertemplate/Components/list_view_slidable.dart';
+import 'package:fluttertemplate/Components/SingleItems/list_view_slidable.dart';
 import 'package:fluttertemplate/PushNotification/notifcation_service.dart';
 import 'package:fluttertemplate/RecyclerControllers/users_controller.dart';
 import 'package:fluttertemplate/Dialogs/no_resulfound.dart';

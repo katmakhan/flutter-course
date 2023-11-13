@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertemplate/Components/list_view_slidable.dart';
+import 'package:fluttertemplate/Components/SingleItems/list_view_slidable.dart';
 import 'package:fluttertemplate/Dialogs/no_resulfound.dart';
 import 'package:get/get.dart';
 

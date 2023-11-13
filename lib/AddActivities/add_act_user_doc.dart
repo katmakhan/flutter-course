@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertemplate/AddControllers/add_user_document_controller.dart';
 import 'package:fluttertemplate/Colors/colors.dart';
-import 'package:fluttertemplate/Components/appbar.dart';
-import 'package:fluttertemplate/Components/cust_button.dart';
-import 'package:fluttertemplate/Components/form_field_large.dart';
-import 'package:fluttertemplate/Components/upload_pdf_button.dart';
+import 'package:fluttertemplate/Components/AppBar/appbar.dart';
+import 'package:fluttertemplate/Components/Buttons/cust_button.dart';
+import 'package:fluttertemplate/Components/Buttons/upload_pdf_button.dart';
+import 'package:fluttertemplate/Components/FormFields/form_field_large.dart';
 import 'package:fluttertemplate/DataModels/dm_user.dart';
 import 'package:get/get.dart';
 
