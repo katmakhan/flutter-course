@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 Flexible listview_Recylcerview_dynamic(usercontroller, context) {
   return Flexible(
+    fit: FlexFit.tight,
     child: Obx(() {
       if (usercontroller.isLoading.value) {
         return const Center(child: CircularProgressIndicator());
@@ -13,7 +14,7 @@ Flexible listview_Recylcerview_dynamic(usercontroller, context) {
           return Center(child: noResultFound(context, "No Users found"));
         } else {
           return ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
+              // physics: const NeverScrollableScrollPhysics(),
               padding: EdgeInsets.zero,
               shrinkWrap: true,
               itemCount: usercontroller.userList.length,

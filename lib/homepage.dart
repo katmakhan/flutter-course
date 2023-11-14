@@ -7,6 +7,7 @@ import 'package:fluttertemplate/Login_Pages/login_page_list.dart';
 import 'package:fluttertemplate/Main_Frags/frag_profile.dart';
 import 'package:fluttertemplate/Main_Frags/frag_realtime.dart';
 import 'package:fluttertemplate/Main_Frags/frag_saved.dart';
+import 'package:fluttertemplate/RecyclerView/combined_recycler_button.dart';
 
 class Homepage extends StatefulWidget {
   final int? fragpos;
@@ -21,8 +22,8 @@ class _HomepageState extends State<Homepage> {
   List pages = [
     const FragSaved(),
     const login_listView(),
-    // const CombinedRecycler(),
-    const FragRealtime(),
+    const CombinedRecycler_withButton(),
+    // const FragRealtime(),
     const FragProfile()
   ];
   int currentIndex = 0;
@@ -86,7 +87,7 @@ class _HomepageState extends State<Homepage> {
                 ),
                 BottomNavigationBarItem(
                   icon: SvgPicture.asset("assets/svg_home/homeu.svg"),
-                  label: "Recylerview",
+                  label: "Recycler",
                   activeIcon: SvgPicture.asset("assets/svg_home/homes.svg"),
                 ),
                 BottomNavigationBarItem(
