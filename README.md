@@ -439,16 +439,17 @@ InkWell(
 - Add these to manifest.xml on `android`
 - Above the `application` tag
 ```console
+<queries>
         <!-- <package android:name="com.whatsapp" /> -->
         <package android:name="com.android.chrome" />
         <!-- <package android:name="org.telegram.messenger" /> -->
         <package android:name="com.google.android.youtube" />
         <!-- <package android:name="com.twitter.android" /> -->
-        <package android:name="com.instagram.android" />
+        <!-- <package android:name="com.instagram.android" />
         <package android:name="com.facebook.katana" />
-        <package android:name="com.facebook.lite" />
+        <package android:name="com.facebook.lite" /> -->
 
-         <intent>
+        <intent>
             <action android:name="android.intent.action.VIEW" />
             <data android:scheme="https" />
         </intent>
@@ -460,4 +461,5 @@ InkWell(
             <action android:name="android.intent.action.SEND" />
             <data android:mimeType="*/*" />
         </intent>
+</queries>
 ```
