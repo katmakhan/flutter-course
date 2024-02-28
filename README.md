@@ -434,3 +434,30 @@ InkWell(
   child: AddChaptersButton(),
 ),
 ```
+
+### Adding open dial, chrome, whatsap, telegram links
+- Add these to manifest.xml on `android`
+- Above the `application` tag
+```console
+        <!-- <package android:name="com.whatsapp" /> -->
+        <package android:name="com.android.chrome" />
+        <!-- <package android:name="org.telegram.messenger" /> -->
+        <package android:name="com.google.android.youtube" />
+        <!-- <package android:name="com.twitter.android" /> -->
+        <package android:name="com.instagram.android" />
+        <package android:name="com.facebook.katana" />
+        <package android:name="com.facebook.lite" />
+
+         <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.DIAL" />
+            <data android:scheme="tel" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.SEND" />
+            <data android:mimeType="*/*" />
+        </intent>
+```
