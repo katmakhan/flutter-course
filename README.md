@@ -463,3 +463,30 @@ InkWell(
         </intent>
 </queries>
 ```
+
+### Creating app logo
+- Update the `pubspec.yaml`
+- Change the `icon_background` to any color if you want
+```console
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.9.2 
+
+
+flutter_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/images/stockexlogo.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  adaptive_icon_background: "#000000"
+  adaptive_icon_foreground: "assets/images/logo_foreground.png"
+```
+
+- Create `logo_foreground.png` from
+```console
+https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html
+```
+
