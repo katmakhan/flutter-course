@@ -489,4 +489,29 @@ flutter_icons:
 ```console
 https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html
 ```
+- Then finish by running
+```console
+flutter pub run flutter_launcher_icons:main
+```
 
+### Get IOS Simulator UUID
+- find the uuid and add the simulator as test device in google mobile ads
+```console
+xcrun simctl list
+```
+
+- Update the `AndroidManifest.xml` under `<application>` tag
+```console
+<meta-data
+  android:name="com.google.android.gms.ads.APPLICATION_ID"
+  android:value="@string/admob_app_id" />
+
+```
+- Update `info.plist`
+```console
+<!-- Google Mobile Ads Section -->
+<key>GADApplicationIdentifier</key>
+<string>ca-app-pub-93453535353535~1243242424</string>
+<!-- End of the Google Ads Section -->
+
+```
