@@ -1,12 +1,9 @@
 // ignore_for_file: camel_case_types, use_build_context_synchronously
 
-import 'dart:io';
 import 'package:fluttertemplate/DB_Services/database_write.dart';
 import 'package:fluttertemplate/DB_Services/upload_helper.dart';
-import 'package:fluttertemplate/DB_Services/upload_service.dart';
 import 'package:fluttertemplate/DataModels/dm_user.dart';
 import 'package:fluttertemplate/Dialogs/custom_alert.dart';
-import 'package:fluttertemplate/Helpers/constants.dart';
 import 'package:fluttertemplate/Helpers/date_conversion.dart';
 import 'package:fluttertemplate/Helpers/global_snackbar_get.dart';
 import 'package:flutter/material.dart';
@@ -30,41 +27,6 @@ class Add_User_Document_Controller extends GetxController {
     usernameController.dispose();
     emailController.dispose();
     pdfController.dispose();
-  }
-
-  String? validateEmail(String value) {
-    if (!GetUtils.isEmail(value)) {
-      return "Provide valid Email";
-    }
-    return null;
-  }
-
-  String? validatePhone(String value) {
-    if (!GetUtils.isPhoneNumber(value)) {
-      return "Phone Number must be 10 Digits";
-    }
-    return null;
-  }
-
-  String? validateUserName(String value) {
-    if (!GetUtils.isUsername(value)) {
-      return "Provide user name";
-    }
-    return null;
-  }
-
-  String? validateName(String value) {
-    if (value.isEmpty) {
-      return "Provide a valid Name";
-    }
-    return null;
-  }
-
-  String? validateUrl(String value) {
-    if (value.isURL) {
-      return "Provide a valid url";
-    }
-    return null;
   }
 
   Future<bool> checkUpload(context, String filename, bool toclose) async {

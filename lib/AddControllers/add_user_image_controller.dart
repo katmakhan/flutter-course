@@ -31,41 +31,6 @@ class Add_User_Image_Controller extends GetxController {
     imageController.dispose();
   }
 
-  String? validateEmail(String value) {
-    if (!GetUtils.isEmail(value)) {
-      return "Provide valid Email";
-    }
-    return null;
-  }
-
-  String? validatePhone(String value) {
-    if (!GetUtils.isPhoneNumber(value)) {
-      return "Phone Number must be 10 Digits";
-    }
-    return null;
-  }
-
-  String? validateUserName(String value) {
-    if (!GetUtils.isUsername(value)) {
-      return "Provide user name";
-    }
-    return null;
-  }
-
-  String? validateName(String value) {
-    if (value.isEmpty) {
-      return "Provide a valid Name";
-    }
-    return null;
-  }
-
-  String? validateUrl(String value) {
-    if (value.isURL) {
-      return "Provide a valid url";
-    }
-    return null;
-  }
-
   Future<bool> checkUpload(context, bool toclose) async {
     final isValid = signupFormKey.currentState!.validate();
 

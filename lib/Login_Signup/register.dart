@@ -2,6 +2,7 @@ import 'package:fluttertemplate/AddControllers/add_user_image_controller.dart';
 import 'package:fluttertemplate/Colors/colors.dart';
 import 'package:fluttertemplate/Helpers/constants.dart';
 import 'package:fluttertemplate/Helpers/global_snackbar_get.dart';
+import 'package:fluttertemplate/Helpers/validators.dart';
 import 'package:fluttertemplate/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -88,35 +89,32 @@ class _RegisterState extends State<Register> {
                   child: Padding(
                     padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
                     child: TextFormField(
-                      maxLines: 1,
-                      style: TextStyle(
-                          fontFamily: "Poppins",
-                          fontWeight: FontWeight.w500,
-                          fontSize: 12,
-                          color: Color(0xFF424242)),
-                      decoration: InputDecoration(
-                        floatingLabelBehavior: FloatingLabelBehavior.never,
-                        border: InputBorder.none,
-                        prefixIcon: Icon(Icons.person),
-                        labelStyle: TextStyle(
+                        maxLines: 1,
+                        style: TextStyle(
                             fontFamily: "Poppins",
                             fontWeight: FontWeight.w500,
                             fontSize: 12,
-                            color: Color(0xFFBBBBBB)),
-                        labelText: "Full Name",
-                        contentPadding:
-                            EdgeInsets.only(top: 2, bottom: 10, left: 25),
-                        // prefixIcon: Icon(Icons.email),
-                      ),
-                      keyboardType: TextInputType.name,
-                      controller: addstudentController.usernameController,
-                      onSaved: (value) {
-                        addstudentController.usernameController.text = value!;
-                      },
-                      validator: (value) {
-                        return addstudentController.validateName(value!);
-                      },
-                    ),
+                            color: Color(0xFF424242)),
+                        decoration: InputDecoration(
+                          floatingLabelBehavior: FloatingLabelBehavior.never,
+                          border: InputBorder.none,
+                          prefixIcon: Icon(Icons.person),
+                          labelStyle: TextStyle(
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12,
+                              color: Color(0xFFBBBBBB)),
+                          labelText: "Full Name",
+                          contentPadding:
+                              EdgeInsets.only(top: 2, bottom: 10, left: 25),
+                          // prefixIcon: Icon(Icons.email),
+                        ),
+                        keyboardType: TextInputType.name,
+                        controller: addstudentController.usernameController,
+                        onSaved: (value) {
+                          addstudentController.usernameController.text = value!;
+                        },
+                        validator: Validators.validateName),
                   ),
                 ),
                 Container(
@@ -131,36 +129,33 @@ class _RegisterState extends State<Register> {
                   child: Padding(
                     padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
                     child: TextFormField(
-                      maxLines: 1,
-                      style: TextStyle(
-                          fontFamily: "Poppins",
-                          fontWeight: FontWeight.w500,
-                          fontSize: 12,
-                          color: Color(0xFF424242)),
-                      decoration: InputDecoration(
-                        floatingLabelBehavior: FloatingLabelBehavior.never,
-                        border: InputBorder.none,
-                        prefixIcon: Icon(Icons.email),
-
-                        labelStyle: TextStyle(
+                        maxLines: 1,
+                        style: TextStyle(
                             fontFamily: "Poppins",
                             fontWeight: FontWeight.w500,
                             fontSize: 12,
-                            color: Color(0xFFBBBBBB)),
-                        labelText: "Email ID",
-                        contentPadding:
-                            EdgeInsets.only(top: 2, bottom: 10, left: 25),
-                        // prefixIcon: Icon(Icons.email),
-                      ),
-                      keyboardType: TextInputType.emailAddress,
-                      controller: addstudentController.emailController,
-                      onSaved: (value) {
-                        addstudentController.emailController.text = value!;
-                      },
-                      validator: (value) {
-                        return addstudentController.validateEmail(value!);
-                      },
-                    ),
+                            color: Color(0xFF424242)),
+                        decoration: InputDecoration(
+                          floatingLabelBehavior: FloatingLabelBehavior.never,
+                          border: InputBorder.none,
+                          prefixIcon: Icon(Icons.email),
+
+                          labelStyle: TextStyle(
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12,
+                              color: Color(0xFFBBBBBB)),
+                          labelText: "Email ID",
+                          contentPadding:
+                              EdgeInsets.only(top: 2, bottom: 10, left: 25),
+                          // prefixIcon: Icon(Icons.email),
+                        ),
+                        keyboardType: TextInputType.emailAddress,
+                        controller: addstudentController.emailController,
+                        onSaved: (value) {
+                          addstudentController.emailController.text = value!;
+                        },
+                        validator: Validators.validateEmail),
                   ),
                 ),
                 SizedBox(height: 5),

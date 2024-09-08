@@ -1,8 +1,6 @@
 // ignore_for_file: file_names
 
 import 'dart:typed_data';
-
-import 'package:flutter_svg/svg.dart';
 import 'package:fluttertemplate/DataModels_Sample/dm_invoice.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';

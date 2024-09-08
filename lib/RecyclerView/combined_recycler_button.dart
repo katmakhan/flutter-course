@@ -5,7 +5,6 @@ import 'package:fluttertemplate/Components/Buttons/cust_button.dart';
 import 'package:fluttertemplate/RecyclerControllers/gallery_controller.dart';
 import 'package:fluttertemplate/RecyclerControllers/users_controller.dart';
 import 'package:fluttertemplate/RecyclerView/listview_recycler.dart';
-import 'package:fluttertemplate/RecyclerView/gridview_recycler.dart';
 import 'package:get/get.dart';
 
 class CombinedRecycler_withButton extends StatefulWidget {

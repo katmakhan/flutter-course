@@ -152,6 +152,13 @@ Make sure you `enable the firebase services` and also added your dev `SHA1-key` 
 <!-- End of the Google Sign-in Section -->
 ```
 
+- If get error `impeller not connected, taking longer`
+- Paste this code inside info.plist
+```
+<key>FLTEnableImpeller</key>
+  <false/>
+```
+
 - If you get error `[FirebaseCore][I-COR000005] No app has been configured yet.`, make sure you add `WidgetsFlutterBinding.ensureInitialized();` in `main()`
 ```dart
 Future<void> main() async {

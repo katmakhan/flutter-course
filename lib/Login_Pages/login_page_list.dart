@@ -6,7 +6,6 @@ import 'package:fluttertemplate/AddActivities/add_act_user_image.dart';
 import 'package:fluttertemplate/Components/SingleItems/list_view.dart';
 import 'package:fluttertemplate/DataModels_Sample/dm_invoice.dart';
 import 'package:fluttertemplate/Dropdown/single_dropdown.dart';
-import 'package:fluttertemplate/GoogleMaps/OrderTracking.dart';
 import 'package:fluttertemplate/Login_Pages/sign_in_1.dart';
 import 'package:fluttertemplate/Login_Pages/sign_in_2.dart';
 import 'package:fluttertemplate/PDFInvoice/pdfinvoice.dart';
