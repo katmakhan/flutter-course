@@ -9,6 +9,9 @@ Copy the necessary resource files from the repo
 ```console
 flutter build web
 ```
+```console
+flutter build web --web-renderer html
+```
 
 Run the build in an emulator or chrome or press `crtl`+`F5` for debubbing and run or just `F5` to run without debugger attached.
 ```console
