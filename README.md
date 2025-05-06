@@ -525,3 +525,47 @@ xcrun simctl list
 <!-- End of the Google Ads Section -->
 
 ```
+
+
+### Updating to Sequoia
+- Find simulator data
+```
+open ~/Library/Developer/CoreSimulator
+```
+- Deleting unused simulator
+```
+xcrun simctl delete unavailable
+```
+- Getting some space, deleting cache and other artifacts in android
+```
+open ~/.gradle/wrapper/dists/
+```
+
+```
+open ~/.gradle/caches/
+```
+
+
+### Updating the gradle
+- Copy the following gradle files 
+- `build.gradle.kts`
+- `build.gradle.kts` in app also
+- `settings.gradle.kts`
+- `gradle-wrapper.properties` inside the gradle/wrapper
+- `proguard-rules.pro` for minify
+- Then update the flutter packages to latest
+- Update `local.properties` with
+```
+flutter.ndkVersion=27.0.12077973
+flutter.compileSdkVersion=36
+flutter.targetSdkVersion=36
+```
+- Add gitignore
+```
+/android/app/.cxx/
+```
+- If already added, remove via terminal command
+```
+git rm -r --cached android/app/.cxx/
+```
+
